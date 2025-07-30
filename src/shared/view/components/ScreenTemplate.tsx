@@ -1,7 +1,8 @@
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { QueryBoundaries } from "./QueryBoundaries";
 import { Spacer } from "./Spacer";
+import { StyleSheet } from "react-native-unistyles";
 
 type Props = {
   header?: React.ReactNode;
@@ -22,8 +23,9 @@ export const ScreenTemplate = ({ header, children }: Props) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   screenContainer: {
     flex: 1,
+    backgroundColor: theme.colors.surface.lower,
   },
-});
+}));

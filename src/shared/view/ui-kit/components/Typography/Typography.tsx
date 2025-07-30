@@ -16,7 +16,7 @@ type TypographyProps = TextProps & {
 
 export const Typography = ({
   children,
-  color = "colors.primary.highest",
+  color = "colors.text.highest",
   variant = "Text.P1.Paragraph",
   ...textProps
 }: TypographyProps) => {
