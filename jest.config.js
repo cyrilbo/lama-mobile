@@ -27,7 +27,11 @@ const config = {
    */
   preset: "jest-expo",
   // test environment setup
-  setupFiles: ["./src/testing/jest-setup.ts"],
+  setupFiles: [
+    "./src/testing/jest-setup.ts",
+    "react-native-unistyles/mocks",
+    "./src/shared/view/ui-kit/theme/unistyles.ts",
+  ],
   setupFilesAfterEnv: ["./src/testing/jest-setupAfterEnv.ts"],
   globalSetup: "./src/testing/jest-globalSetup.ts",
   clearMocks: true,

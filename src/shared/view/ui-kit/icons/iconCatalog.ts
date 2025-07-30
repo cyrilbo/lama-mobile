@@ -1,0 +1,43 @@
+import {
+  AArrowDown,
+  AArrowUp,
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays as Calendar,
+  Check,
+  ChevronDown,
+  CircleCheck,
+  CircleX,
+  ExternalLink,
+  Eye,
+  EyeOff,
+  Info,
+  Minus,
+  Search,
+  TriangleAlert,
+  User,
+  X,
+} from "lucide-react-native";
+
+export const iconCatalog = {
+  AArrowUp,
+  AArrowDown,
+  ArrowRight,
+  ArrowLeft,
+  Calendar,
+  Search,
+  CircleX,
+  Eye,
+  EyeOff,
+  Info,
+  X,
+  ChevronDown,
+  Check,
+  Minus,
+  TriangleAlert,
+  CircleCheck,
+  User,
+  ExternalLink,
+};
+
+export type Icons = keyof typeof iconCatalog;

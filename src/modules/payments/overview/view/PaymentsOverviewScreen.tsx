@@ -7,10 +7,9 @@ const PaymentsOverviewContent = () => {
   const { data: payments } = useGetPayments();
   return (
     <CustomScrollView>
-      <Text style={{ color: "white" }}>Payments Overview</Text>
-      <Text style={{ color: "white" }}>
-        {JSON.stringify(payments, null, 2)}
-      </Text>
+      <Text>Payments Overview</Text>
+      <Text style={{ color: "white" }}>UI Kit</Text>
+      <Text>{JSON.stringify(payments, null, 2)}</Text>
     </CustomScrollView>
   );
 };
