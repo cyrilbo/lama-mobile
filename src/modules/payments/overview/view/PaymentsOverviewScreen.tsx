@@ -5,11 +5,12 @@ import { PaymentListItem } from "./PaymentListItem";
 import { StyleSheet } from "react-native-unistyles";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { Spacer } from "@/src/shared/view/components/Spacer";
-import { formatAmount } from "@/src/shared/view/helpers/formatters";
+import { useAmountFormatter } from "@/src/shared/view/helpers/formatters";
 import { useRouter } from "expo-router";
 import { Trans } from "@lingui/react/macro";
 
 const PaymentsOverviewContent = () => {
+  const { formatAmount } = useAmountFormatter();
   const { data: payments } = useGetPayments();
   const router = useRouter();
   return (

@@ -6,8 +6,8 @@ import { Spacer } from "@/src/shared/view/ui-kit/components/Spacer/Spacer";
 import { StyleSheet } from "react-native-unistyles";
 import { PaymentNextInstallment } from "./PaymentNextInstallment";
 import {
-  formatAmount,
-  formatTimestamp,
+  useAmountFormatter,
+  useTimestampFormatter,
 } from "@/src/shared/view/helpers/formatters";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -21,6 +21,8 @@ type Props = {
 
 export const PaymentListItem = ({ payment }: Props) => {
   const router = useRouter();
+  const { formatAmount } = useAmountFormatter();
+  const { formatTimestamp } = useTimestampFormatter();
   const remainingAmountToPay = computeRemainingAmountToPay(payment);
 
   return (

@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native-unistyles";
 import { Payment } from "../../shared/domain/payment.types";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import {
-  formatAmount,
-  formatTimestamp,
+  useAmountFormatter,
+  useTimestampFormatter,
 } from "@/src/shared/view/helpers/formatters";
 import { Trans } from "@lingui/react/macro";
 
@@ -13,6 +13,9 @@ type Props = {
 };
 
 export const PaymentNextInstallment = ({ payment }: Props) => {
+  const { formatAmount } = useAmountFormatter();
+  const { formatTimestamp } = useTimestampFormatter();
+
   const nextInstallment = payment.payment_plan
     .filter((plan) => plan.state === "pending")
     .sort((a, b) => a.due_date - b.due_date)[0];
