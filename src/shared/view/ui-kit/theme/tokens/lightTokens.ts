@@ -735,6 +735,7 @@ export const typographie = {
       "extra-bold": "extrabold",
     },
     size: {
+      "2xs": 10,
       xs: 12,
       sm: 14,
       md: 16,
