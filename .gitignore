@@ -48,3 +48,6 @@ app-example
 
 # eslint
 .cache/
+
+# expo
+expo-env.d.ts
