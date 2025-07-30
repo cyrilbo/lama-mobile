@@ -1,4 +1,7 @@
+import { Text, View } from "react-native";
 import { TEST_DEFAULT_DATE } from "./constants";
+import { screen } from "@testing-library/react-native";
+import { renderWithProviders } from "./render";
 
 describe("global checks", () => {
   it("jest runs", () => {
@@ -38,5 +41,17 @@ describe("timezone is mocked", () => {
   it("is in the Europe/Paris timezone", () => {
     // On our computers this is obviously true, but in the CI it would fail without the mock
     expect(new Date().getTimezoneOffset()).toBe(-60);
+  });
+});
+
+describe("rn testing library", () => {
+  it("finds rendered text", () => {
+    renderWithProviders(
+      <View>
+        <Text>hello</Text>
+      </View>,
+    );
+
+    expect(screen.getByText("hello")).toBeTruthy();
   });
 });
