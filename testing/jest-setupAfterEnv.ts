@@ -1,3 +1,8 @@
+import {
+  expectRequestsToMatchHandlers,
+  installInterceptor,
+} from "@matthieug/shm";
+
 import { TEST_DEFAULT_DATE, TEST_DEFAULT_MATH_RANDOM } from "./constants";
 
 /**
@@ -34,3 +39,10 @@ setupPermanentMocks();
 
 // And then this one is needed to re-set the mocks after the automatic `clearMocks`
 beforeEach(setupPermanentMocks);
+
+// SHM
+// Prevent all outgoing requests -- Unhandled requests will be responded to with a 404
+installInterceptor();
+
+// Fail tests when there are unhandled requests or unused handlers, and clear handlers
+afterEach(expectRequestsToMatchHandlers);

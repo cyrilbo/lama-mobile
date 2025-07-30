@@ -8,6 +8,7 @@
  * If encountering a syntax error during tests with a new package, add it to this list
  */
 const packagesToTransform = [
+  "react-error-boundary",
   "react-native",
   "react-native-(.*)",
   "@react-native",

@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@matthieug/shm": "^0.7.5",
     "@tanstack/eslint-plugin-query": "^5.81.2",
     "@testing-library/react-native": "^13.2.1",
     "@types/jest": "^29.5.14",
