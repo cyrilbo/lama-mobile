@@ -7654,10 +7654,13 @@ __metadata:
     react-dom: "npm:19.0.0"
     react-error-boundary: "npm:^6.0.0"
     react-native: "npm:0.79.5"
+    react-native-edge-to-edge: "npm:^1.6.2"
     react-native-gesture-handler: "npm:~2.24.0"
+    react-native-nitro-modules: "npm:^0.27.2"
     react-native-reanimated: "npm:~3.17.4"
     react-native-safe-area-context: "npm:5.4.0"
     react-native-screens: "npm:~4.11.1"
+    react-native-unistyles: "npm:^3.0.7"
     react-native-web: "npm:~0.20.0"
     react-native-webview: "npm:13.13.5"
     react-test-renderer: "npm:~19.0.0"
@@ -9326,6 +9329,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-edge-to-edge@npm:^1.6.2":
+  version: 1.6.2
+  resolution: "react-native-edge-to-edge@npm:1.6.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/4c9defc3075aedff2bcef2a39ed97d037f220342baa95d374f3c68dee9e4493429f2f8f3b3dbb7ba355cdfb89a00d6400218c90944cc80e84283d3eb8646c584
+  languageName: node
+  linkType: hard
+
 "react-native-gesture-handler@npm:~2.24.0":
   version: 2.24.0
   resolution: "react-native-gesture-handler@npm:2.24.0"
@@ -9357,6 +9370,16 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10c0/87d20b900aded7d44c90afb946a7aa03c23a94ca3dd547bdddc2303b85357e4aab22567a57b19f1558d6c8be7058e3dcf34faa1e15182d1604f90974266d9a1d
+  languageName: node
+  linkType: hard
+
+"react-native-nitro-modules@npm:^0.27.2":
+  version: 0.27.2
+  resolution: "react-native-nitro-modules@npm:0.27.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/81e4252e38553ba77d29c7b9f0d6c6c0973524d577924bafd76ca1c6f9ffaa3ddb6d65dcbb137e0713fd7fdb8d90efd1a95cc6a3219247439bc493ce0b127f80
   languageName: node
   linkType: hard
 
@@ -9405,6 +9428,23 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10c0/88a33ba419bd571cc318e80d25eb172f5829677f2dd80dcb69cbeaa6a35ba26214e0e82af87baa375182afe41a276e8ef1a9d13b826f662f3a389982492c2879
+  languageName: node
+  linkType: hard
+
+"react-native-unistyles@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "react-native-unistyles@npm:3.0.7"
+  peerDependencies:
+    "@react-native/normalize-colors": "*"
+    react: "*"
+    react-native: ">=0.76.0"
+    react-native-edge-to-edge: "*"
+    react-native-nitro-modules: "*"
+    react-native-reanimated: "*"
+  peerDependenciesMeta:
+    react-native-reanimated:
+      optional: true
+  checksum: 10c0/a382cfbba855c8323dc411b3e950cc1bf3b308fafe98294b54a36cfe102793d6ebb4287652c98bdba993af347ca50754fa0e20345497740af2086f1846a47815
   languageName: node
   linkType: hard
 

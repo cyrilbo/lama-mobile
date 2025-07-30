@@ -51,3 +51,7 @@ app-example
 
 # expo
 expo-env.d.ts
+
+# prebuild
+ios
+android
