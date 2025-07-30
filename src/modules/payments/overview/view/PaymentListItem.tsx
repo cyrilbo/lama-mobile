@@ -1,5 +1,5 @@
 import { TouchableOpacity, View } from "react-native";
-import { Payment } from "../../shared/domain/payment.types";
+import { Amount, Payment } from "../../shared/domain/payment.types";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { PaymentProgress } from "./PaymentProgress";
 import { Spacer } from "@/src/shared/view/ui-kit/components/Spacer/Spacer";
@@ -12,17 +12,18 @@ import {
 import { useRouter } from "expo-router";
 import React from "react";
 import { MerchantLogo } from "./MerchantLogo";
+import {
+  computeAlreadyPaidAmount,
+  computeRemainingAmountToPay,
+} from "../../shared/domain/payment.helpers";
 
 type Props = {
   payment: Payment;
 };
 
 export const PaymentListItem = ({ payment }: Props) => {
-  const totalPaid = payment.payment_plan
-    .filter((plan) => plan.state === "paid")
-    .reduce((acc, plan) => acc + plan.purchase_amount, 0);
-
   const router = useRouter();
+  const remainingAmountToPay = computeRemainingAmountToPay(payment);
 
   return (
     <TouchableOpacity
@@ -62,7 +63,7 @@ export const PaymentListItem = ({ payment }: Props) => {
       <Typography variant="Text.P2.Paragraph" style={{ textAlign: "right" }}>
         Total à payer :{" "}
         <Typography variant="Text.P1.Important">
-          {formatAmount(payment.purchase_amount - totalPaid)}
+          {formatAmount(remainingAmountToPay)}
         </Typography>
       </Typography>
       <Spacer vertical={16} />

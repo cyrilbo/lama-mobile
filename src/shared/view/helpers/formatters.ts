@@ -1,10 +1,16 @@
-// TODO: use intl and branded type
-export const formatAmount = (amount: number) => {
+import {
+  Amount,
+  IsoDateString,
+  Timestamp,
+} from "@/src/modules/payments/shared/domain/payment.types";
+
+// TODO: use intl
+export const formatAmount = (amount: Amount) => {
   return `${(amount / 100).toFixed(2)} €`;
 };
 
-// TODO: use intl and branded type
-export const formatTimestamp = (timestamp: number) => {
+// TODO: use intl
+export const formatTimestamp = (timestamp: Timestamp) => {
   return new Date(timestamp * 1000).toLocaleDateString("fr-FR", {
     day: "2-digit",
     month: "2-digit",
@@ -12,8 +18,8 @@ export const formatTimestamp = (timestamp: number) => {
   });
 };
 
-// TODO: use intl and branded type
-export const formatDate = (date: string) => {
+// TODO: use intl
+export const formatDate = (date: IsoDateString) => {
   return new Date(date).toLocaleDateString("fr-FR", {
     day: "2-digit",
     month: "2-digit",

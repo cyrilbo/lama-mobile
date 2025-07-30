@@ -1,23 +1,31 @@
 import { z } from "zod";
 
-export const amountSchema = z.number().int().min(0);
+export const amountSchema = z.number().int().min(0).brand("amount");
 
-export const timestampSchema = z.number().int().positive();
+export type Amount = z.infer<typeof amountSchema>;
 
-export const isoDateStringSchema = z.iso.date();
+export const timestampSchema = z.number().int().positive().brand("timestamp");
 
-export const paymentPlanSchema = z.object({
-  id: z.string(),
-  purchase_amount: amountSchema,
-  original_purchase_amount: amountSchema.nullable(),
-  due_date: timestampSchema,
-  original_due_date: timestampSchema.nullable(),
-  date_paid: timestampSchema.nullable(),
-  state: z.enum(["pending", "paid"]),
-  customer_fee: amountSchema,
-  customer_interest: amountSchema,
-  customer_can_postpone_until: isoDateStringSchema.nullable(),
-});
+export type Timestamp = z.infer<typeof timestampSchema>;
+
+export const isoDateStringSchema = z.iso.date().brand("isoDateString");
+
+export type IsoDateString = z.infer<typeof isoDateStringSchema>;
+
+export const paymentPlanSchema = z.array(
+  z.object({
+    id: z.string(),
+    purchase_amount: amountSchema,
+    original_purchase_amount: amountSchema.nullable(),
+    due_date: timestampSchema,
+    original_due_date: timestampSchema.nullable(),
+    date_paid: timestampSchema.nullable(),
+    state: z.enum(["pending", "paid"]),
+    customer_fee: amountSchema,
+    customer_interest: amountSchema,
+    customer_can_postpone_until: isoDateStringSchema.nullable(),
+  }),
+);
 
 export type PaymentPlan = z.infer<typeof paymentPlanSchema>;
 
@@ -57,7 +65,7 @@ export const paymentSchema = z.object({
   installments_count: z.number().int().positive(),
   merchant_display_name: z.string(),
   purchase_amount: amountSchema,
-  payment_plan: z.array(paymentPlanSchema),
+  payment_plan: paymentPlanSchema,
   logo_url: z.url().nullable(),
 });
 
