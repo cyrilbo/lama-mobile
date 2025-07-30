@@ -2,7 +2,7 @@ import { queryClient } from "@/src/shared/infra/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import type { RenderOptions } from "@testing-library/react-native";
 import { render } from "@testing-library/react-native";
-import React from "react";
+import React, { act } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { I18nProvider } from "../app/i18n/I18n.provider";
 
@@ -16,7 +16,18 @@ afterEach(() => {
   queryClient.clear();
 });
 
-export const renderWithProviders = (
+export const renderWithProviders = async (
+  component: React.ReactElement,
+  options?: RenderOptions,
+) => {
+  const renderComp = () => renderWithProvidersBase(component, options);
+
+  const result = await act(renderComp);
+
+  return result;
+};
+
+const renderWithProvidersBase = (
   element: React.ReactElement,
   options?: RenderOptions,
 ) => {
