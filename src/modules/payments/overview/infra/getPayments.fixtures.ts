@@ -22,7 +22,6 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 378,
           customer_interest: 0,
           customer_can_postpone_until: null,
-          customer_cannot_postpone_reason: null,
         },
         {
           id: "installment_121IopV5UspdWks53KZ1P5zTRRKG51sP9m",
@@ -35,7 +34,6 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 0,
           customer_interest: 0,
           customer_can_postpone_until: "2025-09-03",
-          customer_cannot_postpone_reason: null,
         },
         {
           id: "installment_121IopV6yEGwrRoMhkooKdJZONFD36bgPX",
@@ -48,7 +46,6 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 0,
           customer_interest: 0,
           customer_can_postpone_until: "2025-10-03",
-          customer_cannot_postpone_reason: null,
         },
         {
           id: "installment_121IopV5S0nF0Gc4IqzCSxfy1xBsG6B1tL",
@@ -61,16 +58,9 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 0,
           customer_interest: 0,
           customer_can_postpone_until: "2025-11-03",
-          customer_cannot_postpone_reason: null,
         },
       ],
-      recovery: null,
-      deferred_trigger: false,
-      deferred_trigger_applied: null,
-      deferred_trigger_description: null,
-      is_deferred_capture: false,
       logo_url: null,
-      refunds: [],
     },
     {
       id: "payment_121FwSk1IpNiGOXBhhbz17OUoERYj1Uwsz",
@@ -91,7 +81,6 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 900,
           customer_interest: 0,
           customer_can_postpone_until: null,
-          customer_cannot_postpone_reason: null,
         },
         {
           id: "installment_121FwSn2IOGFIaQ6sQjjjkfkFpO6D5GsLD",
@@ -104,7 +93,6 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 0,
           customer_interest: 0,
           customer_can_postpone_until: null,
-          customer_cannot_postpone_reason: null,
         },
         {
           id: "installment_121FwSn2ZIOco7uZ8124buNt3OE8h3lslW",
@@ -117,7 +105,6 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 0,
           customer_interest: 0,
           customer_can_postpone_until: "2025-09-25",
-          customer_cannot_postpone_reason: null,
         },
         {
           id: "installment_121FwSn4T1Ua42v2fLsUPwwJE08kc1dYnk",
@@ -130,16 +117,9 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           customer_fee: 0,
           customer_interest: 0,
           customer_can_postpone_until: "2025-10-26",
-          customer_cannot_postpone_reason: null,
         },
       ],
-      recovery: null,
-      deferred_trigger: false,
-      deferred_trigger_applied: null,
-      deferred_trigger_description: null,
-      is_deferred_capture: false,
       logo_url: null,
-      refunds: [],
     },
   ],
 };

@@ -17,7 +17,6 @@ export const paymentPlanSchema = z.object({
   customer_fee: amountSchema,
   customer_interest: amountSchema,
   customer_can_postpone_until: isoDateStringSchema.nullable(),
-  customer_cannot_postpone_reason: z.unknown(),
 });
 
 export type PaymentPlan = z.infer<typeof paymentPlanSchema>;
@@ -41,14 +40,14 @@ const cardSchema = z.object({
   last4: z.string().length(4),
   verified: z.boolean(),
   psp: z.string(),
-  psp_representations: z.unknown(),
 });
+
+export type Card = z.infer<typeof cardSchema>;
 
 const customerSchema = z.object({
   id: z.string(),
   card: cardSchema,
   cards: z.array(cardSchema),
-  payment_methods: z.unknown(),
 });
 
 export const paymentSchema = z.object({
@@ -59,13 +58,7 @@ export const paymentSchema = z.object({
   merchant_display_name: z.string(),
   purchase_amount: amountSchema,
   payment_plan: z.array(paymentPlanSchema),
-  recovery: z.any(),
-  deferred_trigger: z.boolean(),
-  deferred_trigger_applied: z.unknown(),
-  deferred_trigger_description: z.unknown(),
-  is_deferred_capture: z.boolean(),
   logo_url: z.url().nullable(),
-  refunds: z.unknown(),
 });
 
 export type Payment = z.infer<typeof paymentSchema>;
@@ -75,7 +68,6 @@ export const detailedPaymentSchema = paymentSchema.extend({
   country_of_service: z.enum(["FR"]),
   fees: PaymentFeesSchema,
   customer_interest: amountSchema,
-  annual_interest_rate: z.unknown(),
   deferred_days: z.number().int().min(0),
   deferred_months: z.number().int().min(0),
   merchant_id: z.string(),
@@ -86,11 +78,7 @@ export const detailedPaymentSchema = paymentSchema.extend({
   merchant_email: z.array(z.email()),
   merchant_phone: z.string().nullable(),
   customer: customerSchema,
-  requirements: z.unknown(),
-  prefered_payment_method: z.unknown(),
-  orders: z.unknown(),
   return_url: z.url().nullable(),
-  checkout_ab_tests: z.unknown(),
 });
 
 export type DetailedPayment = z.infer<typeof detailedPaymentSchema>;
