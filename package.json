@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
+    "test": "yarn test:types && yarn test:lint",
     "test:types": "tsc",
     "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives --max-warnings 0 --cache --cache-strategy content --cache-location .cache/eslint.json",
     "android": "expo start --android",
