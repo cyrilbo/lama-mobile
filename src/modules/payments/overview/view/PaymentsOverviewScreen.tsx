@@ -7,6 +7,7 @@ import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typog
 import { Spacer } from "@/src/shared/view/components/Spacer";
 import { formatAmount } from "@/src/shared/view/helpers/formatters";
 import { useRouter } from "expo-router";
+import { Trans } from "@lingui/react/macro";
 
 const PaymentsOverviewContent = () => {
   const { data: payments } = useGetPayments();
@@ -23,13 +24,17 @@ const PaymentsOverviewContent = () => {
           }
         }}
       >
-        <Typography variant="Text.P1.Important">Total à payer</Typography>
+        <Typography variant="Text.P1.Important">
+          <Trans>Total amount to pay</Trans>
+        </Typography>
         <Typography variant="Title.H1">
           {formatAmount(payments.total_amount_left_to_pay)}
         </Typography>
       </Pressable>
       <Spacer vertical={16} />
-      <Typography variant="Title.H2">Mes paiements</Typography>
+      <Typography variant="Title.H2">
+        <Trans>My Payments</Trans>
+      </Typography>
       <Spacer vertical={16} />
       <FlatList
         data={payments?.payments}

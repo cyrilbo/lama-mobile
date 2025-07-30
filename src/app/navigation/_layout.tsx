@@ -7,6 +7,7 @@ import "react-native-reanimated";
 
 import { queryClient } from "@/src/shared/infra/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { I18nProvider } from "../i18n/I18n.provider";
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -21,9 +22,11 @@ export default function RootLayout() {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Stack screenOptions={{ headerShown: false }} />
-      <StatusBar style="dark" />
-    </QueryClientProvider>
+    <I18nProvider>
+      <QueryClientProvider client={queryClient}>
+        <Stack screenOptions={{ headerShown: false }} />
+        <StatusBar style="dark" />
+      </QueryClientProvider>
+    </I18nProvider>
   );
 }

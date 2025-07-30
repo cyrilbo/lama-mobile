@@ -1,5 +1,5 @@
 import { TouchableOpacity, View } from "react-native";
-import { Amount, Payment } from "../../shared/domain/payment.types";
+import { Payment } from "../../shared/domain/payment.types";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { PaymentProgress } from "./PaymentProgress";
 import { Spacer } from "@/src/shared/view/ui-kit/components/Spacer/Spacer";
@@ -12,10 +12,8 @@ import {
 import { useRouter } from "expo-router";
 import React from "react";
 import { MerchantLogo } from "./MerchantLogo";
-import {
-  computeAlreadyPaidAmount,
-  computeRemainingAmountToPay,
-} from "../../shared/domain/payment.helpers";
+import { computeRemainingAmountToPay } from "../../shared/domain/payment.helpers";
+import { Trans } from "@lingui/react/macro";
 
 type Props = {
   payment: Payment;
@@ -48,7 +46,7 @@ export const PaymentListItem = ({ payment }: Props) => {
         <View style={styles.rowContainer}>
           <View>
             <Typography variant="Text.P2.Important" color="colors.text.medium">
-              Le {formatTimestamp(payment.created)}
+              {formatTimestamp(payment.created)}
             </Typography>
             <Typography variant="Text.P1.Important">
               {payment.merchant_display_name}
@@ -61,10 +59,12 @@ export const PaymentListItem = ({ payment }: Props) => {
       </View>
       <Spacer vertical={16} />
       <Typography variant="Text.P2.Paragraph" style={{ textAlign: "right" }}>
-        Total à payer :{" "}
-        <Typography variant="Text.P1.Important">
-          {formatAmount(remainingAmountToPay)}
-        </Typography>
+        <Trans>
+          Remaining to be paid:{" "}
+          <Typography variant="Text.P1.Important">
+            {formatAmount(remainingAmountToPay)}
+          </Typography>
+        </Trans>
       </Typography>
       <Spacer vertical={16} />
       <PaymentProgress payment={payment} />

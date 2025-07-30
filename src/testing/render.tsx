@@ -4,6 +4,7 @@ import type { RenderOptions } from "@testing-library/react-native";
 import { render } from "@testing-library/react-native";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { I18nProvider } from "../app/i18n/I18n.provider";
 
 // Using iPhone 13 metrics for tests
 const safeAreaInitialMetrics = {
@@ -21,11 +22,13 @@ export const renderWithProviders = (
 ) => {
   return render(element, {
     wrapper: ({ children }) => (
-      <QueryClientProvider client={queryClient}>
-        <SafeAreaProvider initialMetrics={safeAreaInitialMetrics}>
-          {children}
-        </SafeAreaProvider>
-      </QueryClientProvider>
+      <I18nProvider>
+        <QueryClientProvider client={queryClient}>
+          <SafeAreaProvider initialMetrics={safeAreaInitialMetrics}>
+            {children}
+          </SafeAreaProvider>
+        </QueryClientProvider>
+      </I18nProvider>
     ),
     ...options,
   });

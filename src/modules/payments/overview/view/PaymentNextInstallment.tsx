@@ -6,6 +6,7 @@ import {
   formatAmount,
   formatTimestamp,
 } from "@/src/shared/view/helpers/formatters";
+import { Trans } from "@lingui/react/macro";
 
 type Props = {
   payment: Payment;
@@ -23,10 +24,10 @@ export const PaymentNextInstallment = ({ payment }: Props) => {
     <View style={styles.container}>
       <View>
         <Typography variant="Text.P2.Paragraph">
-          Prochain prélèvement
+          <Trans>Next installment</Trans>
         </Typography>
         <Typography variant="Text.P1.Important">
-          Le {formatTimestamp(nextInstallment.due_date)}
+          {formatTimestamp(nextInstallment.due_date)}
         </Typography>
       </View>
       <View>

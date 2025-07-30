@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-07-31 01:30+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:36
+msgid "My Payments"
+msgstr "My Payments"
+
+#: src/modules/payments/overview/view/PaymentNextInstallment.tsx:27
+msgid "Next installment"
+msgstr "Next installment"
+
+#. placeholder {0}: formatAmount(remainingAmountToPay)
+#: src/modules/payments/overview/view/PaymentListItem.tsx:62
+msgid "Remaining to be paid: <0>{0}</0>"
+msgstr "Remaining to be paid: <0>{0}</0>"
+
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:28
+msgid "Total amount to pay"
+msgstr "Total amount to pay"
