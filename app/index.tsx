@@ -1,4 +1,5 @@
-import { httpClient } from "@/shared/infra/httpClient";
+import { getPaymentsConnector } from "@/modules/payments/overview/infra/getPayments.connector";
+
 import { Button, Text, View } from "react-native";
 
 export default function Home() {
@@ -7,10 +8,9 @@ export default function Home() {
       <Text style={{ color: "white" }}>Home</Text>
       <Button
         title="Get payments"
-        onPress={() => {
-          httpClient.get("/payments").then((res) => {
-            console.log(res.data);
-          });
+        onPress={async () => {
+          const payments = await getPaymentsConnector();
+          console.log(payments);
         }}
       />
     </View>
