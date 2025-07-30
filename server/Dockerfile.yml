@@ -1,0 +1,11 @@
+FROM node:24
+
+WORKDIR /app
+
+RUN npm install -g @mockoon/cli
+
+COPY ./mockoon-export.json /app/mockoon-export.json
+
+EXPOSE 3000
+
+CMD ["mockoon-cli", "start", "--data", "mockoon-export.json", "--port", "3000"]
