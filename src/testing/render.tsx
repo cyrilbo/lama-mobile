@@ -1,4 +1,4 @@
-import { queryClient } from "@/shared/infra/queryClient";
+import { queryClient } from "@/src/shared/infra/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import type { RenderOptions } from "@testing-library/react-native";
 import { render } from "@testing-library/react-native";

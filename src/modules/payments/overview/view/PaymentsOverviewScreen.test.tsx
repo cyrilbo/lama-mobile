@@ -1,6 +1,6 @@
-import { renderWithProviders } from "@/testing/render";
+import { renderWithProviders } from "@/src/testing/render";
 import { PaymentsOverviewScreen } from "./PaymentsOverviewScreen";
-import { mockServer } from "@/testing/mockServer";
+import { mockServer } from "@/src/testing/mockServer";
 import { getPaymentsFixture } from "../infra/getPayments.fixtures";
 import { screen } from "@testing-library/react-native";
 

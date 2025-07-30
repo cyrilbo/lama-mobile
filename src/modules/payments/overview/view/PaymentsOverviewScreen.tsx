@@ -1,7 +1,7 @@
-import { ScreenTemplate } from "@/shared/view/components/ScreenTemplate";
+import { ScreenTemplate } from "@/src/shared/view/components/ScreenTemplate";
 import { Text } from "react-native";
 import { useGetPayments } from "../infra/useGetPayments";
-import { CustomScrollView } from "@/shared/view/components/CustomScrollView";
+import { CustomScrollView } from "@/src/shared/view/components/CustomScrollView";
 
 const PaymentsOverviewContent = () => {
   const { data: payments } = useGetPayments();

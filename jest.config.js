@@ -27,9 +27,9 @@ const config = {
    */
   preset: "jest-expo",
   // test environment setup
-  setupFiles: ["./testing/jest-setup.ts"],
-  setupFilesAfterEnv: ["./testing/jest-setupAfterEnv.ts"],
-  globalSetup: "./testing/jest-globalSetup.ts",
+  setupFiles: ["./src/testing/jest-setup.ts"],
+  setupFilesAfterEnv: ["./src/testing/jest-setupAfterEnv.ts"],
+  globalSetup: "./src/testing/jest-globalSetup.ts",
   clearMocks: true,
   // module resolution
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
@@ -39,7 +39,7 @@ const config = {
   ],
   cacheDirectory: ".cache/jest",
   // coverage
-  collectCoverageFrom: ["**/*.{js,jsx,ts,tsx}"],
+  collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
   coveragePathIgnorePatterns: ["/node_modules/"],
   // tools
   watchPlugins: [

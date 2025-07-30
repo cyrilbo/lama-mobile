@@ -1,4 +1,4 @@
-import { httpClient } from "@/shared/infra/httpClient";
+import { httpClient } from "@/src/shared/infra/httpClient";
 import { getPaymentsResponseSchema } from "./getPayments.types";
 
 export const getPaymentsConnector = async () => {
