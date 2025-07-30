@@ -28,6 +28,7 @@ const config = {
   // test environment setup
   setupFiles: ["./testing/jest-setup.ts"],
   setupFilesAfterEnv: ["./testing/jest-setupAfterEnv.ts"],
+  globalSetup: "./testing/jest-globalSetup.ts",
   clearMocks: true,
   // module resolution
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
