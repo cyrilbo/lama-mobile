@@ -6,7 +6,12 @@ import { getStyleKeyByState } from "../../helpers/styleGettersByState";
 import { Icon } from "../../icons/Icon";
 import type { Icons } from "../../icons/iconCatalog";
 
-type TagLevel = "primary" | "secondary" | "success" | "warning" | "error";
+export type TagLevel =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
 
 type TagProps = {
   disabled?: boolean;

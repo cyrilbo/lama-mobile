@@ -1,9 +1,11 @@
 import { ScreenTemplate } from "@/src/shared/view/components/ScreenTemplate";
-import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import React from "react";
 import { useGetPaymentDetails } from "../infra/useGetPaymentDetails";
 import { useLocalSearchParams } from "expo-router";
-import { CustomScrollView } from "@/src/shared/view/components/CustomScrollView";
+
+import { View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+import { PaymentHeader } from "./PaymentHeader";
 
 const PaymentDetailsContent = () => {
   const { paymentId } = useLocalSearchParams<{ paymentId: string }>();
@@ -11,16 +13,17 @@ const PaymentDetailsContent = () => {
   const { data: payment } = useGetPaymentDetails(paymentId);
 
   return (
-    <CustomScrollView>
-      <Typography variant="Title.H1">
-        {payment.merchant_display_name}
-      </Typography>
-      <Typography variant="Text.Caption.Paragraph">
-        {JSON.stringify(payment, null, 2)}
-      </Typography>
-    </CustomScrollView>
+    <View style={styles.container}>
+      <PaymentHeader payment={payment} />
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+  },
+});
 
 export const PaymentDetailsScreen = () => {
   return (
