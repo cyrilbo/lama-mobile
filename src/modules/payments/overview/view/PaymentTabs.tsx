@@ -89,6 +89,7 @@ export function PaymentTabs({
             onPress={() => onSelect(index)}
           >
             <AnimatedTypography
+              aria-selected={state === selectedPaymentState}
               variant="Text.P2.Important"
               style={textStyles[index]}
             >
