@@ -58,10 +58,14 @@ const customerSchema = z.object({
   cards: z.array(cardSchema),
 });
 
+export const paymentStateSchema = z.enum(["in_progress", "completed"]);
+
+export type PaymentState = z.infer<typeof paymentStateSchema>;
+
 export const paymentSchema = z.object({
   id: z.string(),
   created: timestampSchema,
-  state: z.enum(["in_progress"]),
+  state: paymentStateSchema,
   installments_count: z.number().int().positive(),
   merchant_display_name: z.string(),
   purchase_amount: amountSchema,

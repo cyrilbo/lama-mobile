@@ -6,20 +6,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:36
+#: src/modules/payments/overview/view/PaymentTabs.tsx:17
+msgid "Completed"
+msgstr "Completed"
+
+#: src/modules/payments/overview/view/PaymentTabs.tsx:16
+msgid "In progress"
+msgstr "In progress"
+
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:47
 msgid "My Payments"
 msgstr "My Payments"
 
-#: src/modules/payments/overview/view/PaymentNextInstallment.tsx:27
+#: src/modules/payments/overview/view/PaymentNextInstallment.tsx:30
 msgid "Next installment"
 msgstr "Next installment"
 
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:66
+msgid "No payments found"
+msgstr "No payments found"
+
 #. placeholder {0}: formatAmount(remainingAmountToPay)
-#: src/modules/payments/overview/view/PaymentListItem.tsx:62
+#: src/modules/payments/overview/view/PaymentListItem.tsx:64
 msgid "Remaining to be paid: <0>{0}</0>"
 msgstr "Remaining to be paid: <0>{0}</0>"
 
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:28
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:39
 msgid "Total amount to pay"
 msgstr "Total amount to pay"

@@ -18,10 +18,11 @@ export const Typography = ({
   children,
   color = "colors.text.highest",
   variant = "Text.P1.Paragraph",
+  style,
   ...textProps
 }: TypographyProps) => {
   return (
-    <Text style={styles.typography(variant, color)} {...textProps}>
+    <Text style={[styles.typography(variant, color), style]} {...textProps}>
       {children}
     </Text>
   );
