@@ -5,6 +5,11 @@ import { render } from "@testing-library/react-native";
 import React, { act } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { I18nProvider } from "../app/i18n/I18n.provider";
+import {
+  MockContextConfig,
+  renderRouter,
+  RenderRouterOptions,
+} from "expo-router/testing-library";
 
 // Using iPhone 13 metrics for tests
 const safeAreaInitialMetrics = {
@@ -32,6 +37,35 @@ const renderWithProvidersBase = (
   options?: RenderOptions,
 ) => {
   return render(element, {
+    wrapper: ({ children }) => (
+      <I18nProvider>
+        <QueryClientProvider client={queryClient}>
+          <SafeAreaProvider initialMetrics={safeAreaInitialMetrics}>
+            {children}
+          </SafeAreaProvider>
+        </QueryClientProvider>
+      </I18nProvider>
+    ),
+    ...options,
+  });
+};
+
+export const renderRouterWithProviders = async (
+  context: MockContextConfig,
+  options?: RenderRouterOptions,
+) => {
+  const renderComp = () => renderRouterWithProvidersBase(context, options);
+
+  const result = await act(renderComp);
+
+  return result;
+};
+
+const renderRouterWithProvidersBase = (
+  context: MockContextConfig,
+  options?: RenderRouterOptions,
+) => {
+  return renderRouter(context, {
     wrapper: ({ children }) => (
       <I18nProvider>
         <QueryClientProvider client={queryClient}>
