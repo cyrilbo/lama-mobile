@@ -6,15 +6,19 @@ import { Spacer } from "@/src/shared/view/components/Spacer";
 import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { PaymentHeader } from "./PaymentHeader";
-import { NextInstallment } from "./NextInstallment";
+import { InstallmentDetails } from "./InstallmentDetails";
 import { getNextInstallment } from "../../shared/domain/payment.helpers";
 import { PaymentPlan } from "./PaymentPlan";
+import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
+import { useLingui } from "@lingui/react/macro";
 
 type Props = {
   paymentId: string;
 };
 
 const PaymentDetailsContent = ({ paymentId }: Props) => {
+  const { t } = useLingui();
+
   const { data: payment } = useGetPaymentDetails(paymentId);
   const nextInstallment = getNextInstallment(payment);
 
@@ -24,10 +28,20 @@ const PaymentDetailsContent = ({ paymentId }: Props) => {
       <Spacer vertical={16} />
       <CustomScrollView>
         {nextInstallment && (
-          <NextInstallment
-            installment={nextInstallment}
-            customer={payment.customer}
-          />
+          <View style={styles.nextInstallmentContainer}>
+            <Typography variant="Title.H3">
+              {t({
+                id: "payment.details.next_installment.title",
+                message: "Next installment",
+              })}
+            </Typography>
+
+            <Spacer vertical={16} />
+            <InstallmentDetails
+              installment={nextInstallment}
+              customer={payment.customer}
+            />
+          </View>
         )}
         <Spacer vertical={16} />
         <PaymentPlan payment={payment} />
@@ -36,12 +50,17 @@ const PaymentDetailsContent = ({ paymentId }: Props) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   container: {
     flex: 1,
     paddingHorizontal: 16,
   },
-});
+  nextInstallmentContainer: {
+    backgroundColor: theme.colors.warning.lower,
+    borderRadius: 12,
+    padding: 16,
+  },
+}));
 
 export const PaymentDetailsScreen = ({ paymentId }: Props) => {
   return (

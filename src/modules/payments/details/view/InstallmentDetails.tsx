@@ -17,23 +17,14 @@ type Props = {
   customer: Customer;
 };
 
-export const NextInstallment = ({ installment, customer }: Props) => {
+export const InstallmentDetails = ({ installment, customer }: Props) => {
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
   const { formatDay } = useDayFormatter();
   const { t } = useLingui();
 
   return (
-    <View style={styles.container}>
-      <Typography variant="Title.H3">
-        {t({
-          id: "payment.details.next_installment.title",
-          message: "Next installment",
-        })}
-      </Typography>
-
-      <Spacer vertical={16} />
-
+    <View>
       <View style={styles.infoItem}>
         <Icon icon="DollarSign" size={20} />
         <Typography variant="Text.P1.Important">
@@ -116,14 +107,9 @@ export const NextInstallment = ({ installment, customer }: Props) => {
   );
 };
 
-const styles = StyleSheet.create((theme) => ({
-  container: {
-    backgroundColor: theme.colors.warning.lower,
-    borderRadius: 12,
-    padding: 16,
-  },
+const styles = StyleSheet.create({
   infoItem: {
     flexDirection: "row",
     gap: 4,
   },
-}));
+});
