@@ -211,7 +211,7 @@ export const components = {
           "background-color": foundation["colors"]["primary"]["higher"],
         },
         active: {
-          "background-color": foundation["colors"]["primary"]["highest"],
+          "background-color": foundation["colors"]["primary"]["higher"],
         },
         "border-size": foundation["sizes"]["none"],
       },
