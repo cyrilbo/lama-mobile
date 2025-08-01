@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-import { Trans, useLingui } from "@lingui/react/macro";
+import { useLingui } from "@lingui/react/macro";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { Icon } from "@/src/shared/view/ui-kit/icons/Icon";
 import {

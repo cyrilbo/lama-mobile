@@ -8,6 +8,7 @@ import { StyleSheet } from "react-native-unistyles";
 import { PaymentHeader } from "./PaymentHeader";
 import { NextInstallment } from "./NextInstallment";
 import { getNextInstallment } from "../../shared/domain/payment.helpers";
+import { PaymentPlan } from "./PaymentPlan";
 
 type Props = {
   paymentId: string;
@@ -28,6 +29,8 @@ const PaymentDetailsContent = ({ paymentId }: Props) => {
             customer={payment.customer}
           />
         )}
+        <Spacer vertical={16} />
+        <PaymentPlan payment={payment} />
       </CustomScrollView>
     </View>
   );
@@ -35,6 +38,7 @@ const PaymentDetailsContent = ({ paymentId }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     paddingHorizontal: 16,
   },
 });

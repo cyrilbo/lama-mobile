@@ -20,6 +20,8 @@ import {
   Hourglass,
   CreditCard,
   DollarSign,
+  CheckCircle,
+  ChevronRight,
 } from "lucide-react-native";
 
 export const iconCatalog = {
@@ -44,6 +46,8 @@ export const iconCatalog = {
   Hourglass,
   CreditCard,
   DollarSign,
+  CheckCircle,
+  ChevronRight,
 };
 
 export type Icons = keyof typeof iconCatalog;
