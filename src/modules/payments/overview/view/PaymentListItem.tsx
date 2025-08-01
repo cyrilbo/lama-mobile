@@ -75,9 +75,11 @@ export const PaymentListItem = ({ payment }: Props) => {
       <Spacer vertical={16} />
       <PaymentProgress payment={payment} />
 
-      <Spacer vertical={16} />
       {nextInstallment && (
-        <PaymentNextInstallment installment={nextInstallment} />
+        <>
+          <Spacer vertical={16} />
+          <PaymentNextInstallment installment={nextInstallment} />
+        </>
       )}
     </TouchableOpacity>
   );
