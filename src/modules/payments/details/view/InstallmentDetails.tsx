@@ -57,21 +57,26 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
           </Typography>
         </View>
       </View>
-      <Spacer vertical={8} />
-      <Button
-        label={t({
-          id: "payment.details.postpone.cta",
-          message: "Postpone *",
-        })}
-        size="XS"
-      />
       {installment.customer_can_postpone_until && (
-        <Typography variant="Text.P2.Paragraph" style={{ textAlign: "center" }}>
-          {t({
-            id: "payment.details.date.postpone.caption",
-            message: `You can postpone your next installment until ${formatDay(installment.customer_can_postpone_until)}`,
-          })}
-        </Typography>
+        <>
+          <Spacer vertical={8} />
+          <Button
+            label={t({
+              id: "payment.details.postpone.cta",
+              message: "Postpone *",
+            })}
+            size="XS"
+          />
+          <Typography
+            variant="Text.P2.Paragraph"
+            style={{ textAlign: "center" }}
+          >
+            {t({
+              id: "payment.details.date.postpone.caption",
+              message: `You can postpone your next installment until ${formatDay(installment.customer_can_postpone_until)}`,
+            })}
+          </Typography>
+        </>
       )}
       <Spacer vertical={16} />
 
