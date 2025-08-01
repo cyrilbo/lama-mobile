@@ -12,20 +12,22 @@ export const isoDateStringSchema = z.iso.date().brand("isoDateString");
 
 export type IsoDateString = z.infer<typeof isoDateStringSchema>;
 
-export const paymentPlanSchema = z.array(
-  z.object({
-    id: z.string(),
-    purchase_amount: amountSchema,
-    original_purchase_amount: amountSchema.nullable(),
-    due_date: timestampSchema,
-    original_due_date: timestampSchema.nullable(),
-    date_paid: timestampSchema.nullable(),
-    state: z.enum(["pending", "paid"]),
-    customer_fee: amountSchema,
-    customer_interest: amountSchema,
-    customer_can_postpone_until: isoDateStringSchema.nullable(),
-  }),
-);
+const installmentSchema = z.object({
+  id: z.string(),
+  purchase_amount: amountSchema,
+  original_purchase_amount: amountSchema.nullable(),
+  due_date: timestampSchema,
+  original_due_date: timestampSchema.nullable(),
+  date_paid: timestampSchema.nullable(),
+  state: z.enum(["pending", "paid"]),
+  customer_fee: amountSchema,
+  customer_interest: amountSchema,
+  customer_can_postpone_until: isoDateStringSchema.nullable(),
+});
+
+export type Installment = z.infer<typeof installmentSchema>;
+
+export const paymentPlanSchema = z.array(installmentSchema);
 
 export type PaymentPlan = z.infer<typeof paymentPlanSchema>;
 
@@ -57,6 +59,8 @@ const customerSchema = z.object({
   card: cardSchema,
   cards: z.array(cardSchema),
 });
+
+export type Customer = z.infer<typeof customerSchema>;
 
 export const paymentStateSchema = z.enum(["in_progress", "completed"]);
 

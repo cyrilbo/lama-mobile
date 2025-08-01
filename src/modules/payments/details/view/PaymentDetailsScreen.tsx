@@ -8,18 +8,25 @@ import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { PaymentHeader } from "./PaymentHeader";
 import { NextInstallment } from "./NextInstallment";
+import { getNextInstallment } from "../../shared/domain/payment.helpers";
 
 const PaymentDetailsContent = () => {
   const { paymentId } = useLocalSearchParams<{ paymentId: string }>();
 
   const { data: payment } = useGetPaymentDetails(paymentId);
+  const nextInstallment = getNextInstallment(payment);
 
   return (
     <View style={styles.container}>
       <PaymentHeader payment={payment} />
       <Spacer vertical={16} />
       <CustomScrollView>
-        <NextInstallment payment={payment} />
+        {nextInstallment && (
+          <NextInstallment
+            installment={nextInstallment}
+            customer={payment.customer}
+          />
+        )}
       </CustomScrollView>
     </View>
   );

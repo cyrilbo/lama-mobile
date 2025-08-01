@@ -8,27 +8,20 @@ import {
   useTimestampFormatter,
   useDayFormatter,
 } from "@/src/shared/view/helpers/formatters";
-import { DetailedPayment } from "../../shared/domain/payment.types";
+import { Customer, Installment } from "../../shared/domain/payment.types";
 import { Spacer } from "@/src/shared/view/components/Spacer";
 import { Button } from "@/src/shared/view/ui-kit/components/Button/Button";
 
 type Props = {
-  payment: DetailedPayment;
+  installment: Installment;
+  customer: Customer;
 };
 
-export const NextInstallment = ({ payment }: Props) => {
+export const NextInstallment = ({ installment, customer }: Props) => {
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
   const { formatDay } = useDayFormatter();
   const { t } = useLingui();
-
-  const nextInstallment = payment.payment_plan
-    .filter((plan) => plan.state === "pending")
-    .sort((a, b) => a.due_date - b.due_date)[0];
-
-  if (!nextInstallment) {
-    return null;
-  }
 
   return (
     <View style={styles.container}>
@@ -45,7 +38,7 @@ export const NextInstallment = ({ payment }: Props) => {
         </Typography>
         <View style={{ flex: 1, alignItems: "flex-end" }}>
           <Typography variant="Title.H3">
-            {formatAmount(nextInstallment.purchase_amount)}
+            {formatAmount(installment.purchase_amount)}
           </Typography>
         </View>
       </View>
@@ -60,17 +53,17 @@ export const NextInstallment = ({ payment }: Props) => {
         </Typography>
         <View style={{ flex: 1, alignItems: "flex-end" }}>
           <Typography variant="Title.H3">
-            {formatTimestamp(nextInstallment.due_date)}
+            {formatTimestamp(installment.due_date)}
           </Typography>
         </View>
       </View>
       <Spacer vertical={8} />
       <Button label={t`Postpone *`} size="XS" />
-      {nextInstallment.customer_can_postpone_until && (
+      {installment.customer_can_postpone_until && (
         <Typography variant="Text.P2.Paragraph" style={{ textAlign: "center" }}>
           <Trans>
             * You can postpone your next installment until{" "}
-            {formatDay(nextInstallment.customer_can_postpone_until)}
+            {formatDay(installment.customer_can_postpone_until)}
           </Trans>
         </Typography>
       )}
@@ -83,11 +76,11 @@ export const NextInstallment = ({ payment }: Props) => {
         </Typography>
         <View style={{ flex: 1, alignItems: "flex-end" }}>
           <Typography variant="Title.H3">
-            {`•••• •••• •••• ${payment.customer.card.last4}`}
+            {`•••• •••• •••• ${customer.card.last4}`}
           </Typography>
           <Typography variant="Title.H3">
             <Trans>
-              {`Exp ${payment.customer.card.exp_month}/${payment.customer.card.exp_year}`}
+              {`Exp ${customer.card.exp_month}/${customer.card.exp_year}`}
             </Trans>
           </Typography>
         </View>

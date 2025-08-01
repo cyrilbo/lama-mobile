@@ -1,4 +1,4 @@
-import { Amount, Payment, PaymentPlan } from "./payment.types";
+import { Amount, Installment, Payment, PaymentPlan } from "./payment.types";
 
 export const computeAlreadyPaidAmount = (paymentPlan: PaymentPlan): Amount => {
   return paymentPlan
@@ -9,4 +9,12 @@ export const computeAlreadyPaidAmount = (paymentPlan: PaymentPlan): Amount => {
 export const computeRemainingAmountToPay = (payment: Payment): Amount => {
   return (payment.purchase_amount -
     computeAlreadyPaidAmount(payment.payment_plan)) as Amount;
+};
+
+export const getNextInstallment = (payment: Payment): Installment | null => {
+  return (
+    payment.payment_plan
+      .filter((plan) => plan.state === "pending")
+      .sort((a, b) => a.due_date - b.due_date)[0] ?? null
+  );
 };
