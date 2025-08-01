@@ -1,7 +1,6 @@
 import { ScreenTemplate } from "@/src/shared/view/components/ScreenTemplate";
 import React from "react";
 import { useGetPaymentDetails } from "../infra/useGetPaymentDetails";
-import { useLocalSearchParams } from "expo-router";
 import { CustomScrollView } from "@/src/shared/view/components/CustomScrollView";
 import { Spacer } from "@/src/shared/view/components/Spacer";
 import { View } from "react-native";
@@ -10,9 +9,11 @@ import { PaymentHeader } from "./PaymentHeader";
 import { NextInstallment } from "./NextInstallment";
 import { getNextInstallment } from "../../shared/domain/payment.helpers";
 
-const PaymentDetailsContent = () => {
-  const { paymentId } = useLocalSearchParams<{ paymentId: string }>();
+type Props = {
+  paymentId: string;
+};
 
+const PaymentDetailsContent = ({ paymentId }: Props) => {
   const { data: payment } = useGetPaymentDetails(paymentId);
   const nextInstallment = getNextInstallment(payment);
 
@@ -38,10 +39,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export const PaymentDetailsScreen = () => {
+export const PaymentDetailsScreen = ({ paymentId }: Props) => {
   return (
     <ScreenTemplate>
-      <PaymentDetailsContent />
+      <PaymentDetailsContent paymentId={paymentId} />
     </ScreenTemplate>
   );
 };

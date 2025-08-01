@@ -58,7 +58,9 @@ describe("PaymentsOverviewScreen", () => {
 
     await renderRouterWithProviders({
       index: PaymentsOverviewScreen,
-      "payment/[paymentId]": PaymentDetailsScreen,
+      "payment/[paymentId]": () => (
+        <PaymentDetailsScreen paymentId="payment_121IopV7OU4kX5pMradVJfGAQzSJz7MGy2" />
+      ),
     });
 
     expect(routerScreen).toHavePathname("/");
