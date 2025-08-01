@@ -4,7 +4,7 @@ import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typog
 import { PaymentProgress } from "./PaymentProgress";
 import { Spacer } from "@/src/shared/view/ui-kit/components/Spacer/Spacer";
 import { StyleSheet } from "react-native-unistyles";
-import { PaymentNextInstallment } from "./PaymentNextInstallment";
+import { NextInstallmentOverview } from "./NextInstallmentOverview";
 import {
   useAmountFormatter,
   useTimestampFormatter,
@@ -78,7 +78,7 @@ export const PaymentListItem = ({ payment }: Props) => {
       {nextInstallment && (
         <>
           <Spacer vertical={16} />
-          <PaymentNextInstallment installment={nextInstallment} />
+          <NextInstallmentOverview installment={nextInstallment} />
         </>
       )}
     </TouchableOpacity>

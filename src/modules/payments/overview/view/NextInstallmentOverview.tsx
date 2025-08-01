@@ -12,7 +12,7 @@ type Props = {
   installment: Installment;
 };
 
-export const PaymentNextInstallment = ({ installment }: Props) => {
+export const NextInstallmentOverview = ({ installment }: Props) => {
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
 
