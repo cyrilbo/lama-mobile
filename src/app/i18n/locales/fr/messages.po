@@ -19,12 +19,12 @@ msgid "payment.details.amount.label"
 msgstr "Montant"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/InstallmentDetails.tsx:107
+#: src/modules/payments/details/view/InstallmentDetails.tsx:125
 msgid "payment.details.charged_card.change_card.cta"
 msgstr "Changer de carte"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/InstallmentDetails.tsx:86
+#: src/modules/payments/details/view/InstallmentDetails.tsx:104
 msgid "payment.details.charged_card.label"
 msgstr "Carte prélevée"
 
@@ -39,14 +39,14 @@ msgid "payment.state.completed"
 msgstr "Complété"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/InstallmentDetails.tsx:49
+#: src/modules/payments/details/view/InstallmentDetails.tsx:48
 msgid "payment.details.due_date.label"
 msgstr "Échéance"
 
 #. js-lingui-explicit-id
 #. placeholder {0}: customer.card.exp_month
 #. placeholder {1}: customer.card.exp_year
-#: src/modules/payments/details/view/InstallmentDetails.tsx:96
+#: src/modules/payments/details/view/InstallmentDetails.tsx:114
 msgid "payment.details.charged_card.expiry"
 msgstr "Exp {0}/{1}"
 
@@ -92,12 +92,17 @@ msgid "payment.details.payment_plan.item.paid_at"
 msgstr "Payé le {0}"
 
 #. js-lingui-explicit-id
+#: src/modules/payments/details/view/InstallmentDetails.tsx:86
+msgid "payment.details.paid_date.label"
+msgstr "Date de paiement"
+
+#. js-lingui-explicit-id
 #: src/modules/payments/details/view/PaymentPlan.tsx:16
 msgid "payment.details.payment_plan.title"
 msgstr "Plan de paiement"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/InstallmentDetails.tsx:64
+#: src/modules/payments/details/view/InstallmentDetails.tsx:63
 msgid "payment.details.postpone.cta"
 msgstr "Reporter *"
 
@@ -113,6 +118,6 @@ msgstr "Total à payer : "
 
 #. js-lingui-explicit-id
 #. placeholder {0}: formatDay(installment.customer_can_postpone_until)
-#: src/modules/payments/details/view/InstallmentDetails.tsx:74
+#: src/modules/payments/details/view/InstallmentDetails.tsx:73
 msgid "payment.details.date.postpone.caption"
 msgstr "* Vous pouvez reporter votre prélèvement jusqu'au {0}"

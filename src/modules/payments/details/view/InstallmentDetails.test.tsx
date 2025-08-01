@@ -11,8 +11,8 @@ describe("InstallmentDetails", () => {
   it("renders a paid installment correctly", async () => {
     const paidInstallment = getInstallmentFixture({
       state: "paid",
-      due_date: 1751527297 as Timestamp,
-      date_paid: 1751527335 as Timestamp,
+      due_date: 1753433657 as Timestamp,
+      date_paid: 1751287110 as Timestamp,
     });
     const customer = getCustomerFixture();
 
@@ -23,6 +23,9 @@ describe("InstallmentDetails", () => {
     expect(await screen.findByText("Amount")).toBeOnTheScreen();
     expect(await screen.findByText("€52.50")).toBeOnTheScreen();
     expect(await screen.findByText("Due date")).toBeOnTheScreen();
+    expect(await screen.findByText("07/25/2025")).toBeOnTheScreen();
+    expect(await screen.findByText("Paid date")).toBeOnTheScreen();
+    expect(await screen.findByText("06/30/2025")).toBeOnTheScreen();
     expect(screen.queryByText("Postpone *")).not.toBeOnTheScreen();
     expect(screen.queryByText("Change card")).not.toBeOnTheScreen();
   });

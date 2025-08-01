@@ -41,14 +41,13 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
       </View>
 
       <Spacer vertical={16} />
-
       <View style={styles.infoItem}>
         <Icon icon="Calendar" size={20} />
 
         <Typography variant="Text.P1.Important">
           {t({
-            id: "payment.details.date.label",
-            message: "Date",
+            id: "payment.details.due_date.label",
+            message: "Due date",
           })}
         </Typography>
         <View style={{ flex: 1, alignItems: "flex-end" }}>
@@ -79,6 +78,25 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
         </>
       )}
       <Spacer vertical={16} />
+      {installment.date_paid && (
+        <>
+          <View style={styles.infoItem}>
+            <Icon icon="CalendarCheck" size={20} />
+            <Typography variant="Text.P1.Important">
+              {t({
+                id: "payment.details.paid_date.label",
+                message: "Paid date",
+              })}
+            </Typography>
+            <View style={{ flex: 1, alignItems: "flex-end" }}>
+              <Typography variant="Title.H3">
+                {formatTimestamp(installment.date_paid)}
+              </Typography>
+            </View>
+          </View>
+          <Spacer vertical={16} />
+        </>
+      )}
 
       <View style={styles.infoItem}>
         <Icon icon="CreditCard" size={20} />
