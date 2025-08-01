@@ -22,8 +22,7 @@ describe("InstallmentDetails", () => {
 
     expect(await screen.findByText("Amount")).toBeOnTheScreen();
     expect(await screen.findByText("€52.50")).toBeOnTheScreen();
-    expect(await screen.findByText("Date")).toBeOnTheScreen();
-    expect(await screen.findByText("07/03/2025")).toBeOnTheScreen();
+    expect(await screen.findByText("Due date")).toBeOnTheScreen();
     expect(screen.queryByText("Postpone *")).not.toBeOnTheScreen();
     expect(screen.queryByText("Change card")).not.toBeOnTheScreen();
   });

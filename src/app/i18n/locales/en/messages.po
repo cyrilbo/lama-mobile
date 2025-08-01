@@ -14,17 +14,17 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/NextInstallment.tsx:40
+#: src/modules/payments/details/view/InstallmentDetails.tsx:31
 msgid "payment.details.amount.label"
 msgstr "Amount"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/NextInstallment.tsx:109
+#: src/modules/payments/details/view/InstallmentDetails.tsx:107
 msgid "payment.details.charged_card.change_card.cta"
 msgstr "Change card"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/NextInstallment.tsx:90
+#: src/modules/payments/details/view/InstallmentDetails.tsx:86
 msgid "payment.details.charged_card.label"
 msgstr "Charged card"
 
@@ -39,14 +39,14 @@ msgid "payment.state.completed"
 msgstr "Completed"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/NextInstallment.tsx:58
-msgid "payment.details.date.label"
-msgstr "Date"
+#: src/modules/payments/details/view/InstallmentDetails.tsx:49
+msgid "payment.details.due_date.label"
+msgstr "Due date"
 
 #. js-lingui-explicit-id
 #. placeholder {0}: customer.card.exp_month
 #. placeholder {1}: customer.card.exp_year
-#: src/modules/payments/details/view/NextInstallment.tsx:100
+#: src/modules/payments/details/view/InstallmentDetails.tsx:96
 msgid "payment.details.charged_card.expiry"
 msgstr "Exp {0}/{1}"
 
@@ -61,6 +61,11 @@ msgid "payment.state.in_progress"
 msgstr "In progress"
 
 #. js-lingui-explicit-id
+#: src/modules/payments/details/view/PaymentPlanItem.tsx:125
+msgid "payment.details.payment_plan.item.details.title"
+msgstr "Installment details"
+
+#. js-lingui-explicit-id
 #: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:52
 msgid "payment.overview.my_payments.title"
 msgstr "My Payments"
@@ -71,7 +76,7 @@ msgid "payment.overview.next_installment.title"
 msgstr "Next installment"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/NextInstallment.tsx:29
+#: src/modules/payments/details/view/PaymentDetailsScreen.tsx:33
 msgid "payment.details.next_installment.title"
 msgstr "Next installment"
 
@@ -81,7 +86,18 @@ msgid "payment.overview.no_payments_found"
 msgstr "No payments found"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/NextInstallment.tsx:71
+#. placeholder {0}: formatTimestamp(installment.date_paid)
+#: src/modules/payments/details/view/PaymentPlanItem.tsx:102
+msgid "payment.details.payment_plan.item.paid_at"
+msgstr "Paid at {0}"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/PaymentPlan.tsx:16
+msgid "payment.details.payment_plan.title"
+msgstr "Payment plan"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/InstallmentDetails.tsx:64
 msgid "payment.details.postpone.cta"
 msgstr "Postpone *"
 
@@ -97,6 +113,6 @@ msgstr "Total amount to pay"
 
 #. js-lingui-explicit-id
 #. placeholder {0}: formatDay(installment.customer_can_postpone_until)
-#: src/modules/payments/details/view/NextInstallment.tsx:79
+#: src/modules/payments/details/view/InstallmentDetails.tsx:74
 msgid "payment.details.date.postpone.caption"
 msgstr "You can postpone your next installment until {0}"
