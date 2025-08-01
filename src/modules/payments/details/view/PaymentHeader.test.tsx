@@ -1,12 +1,12 @@
 import { screen } from "@testing-library/react-native";
 import { PaymentHeader } from "./PaymentHeader";
 import { renderWithProviders } from "@/src/testing/render";
-import { getPaymentDetailsFixture } from "../infra/getPaymentDetails.fixture";
+import { detailedPaymentFixture } from "../../shared/domain/payment.fixtures";
 
 describe("PaymentHeader", () => {
   it("renders correctly", async () => {
     await renderWithProviders(
-      <PaymentHeader payment={getPaymentDetailsFixture} />,
+      <PaymentHeader payment={detailedPaymentFixture} />,
     );
     expect(screen.getByText("France_merchant")).toBeOnTheScreen();
     expect(screen.getByText("€210.00")).toBeOnTheScreen();

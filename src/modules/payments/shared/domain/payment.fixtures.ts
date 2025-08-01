@@ -2,6 +2,7 @@ import { deepMerge } from "@/src/shared/helpers/deepMerge";
 import { DeepPartial } from "@/src/shared/helpers/deepPartial.types";
 import {
   Amount,
+  DetailedPayment,
   Installment,
   IsoDateString,
   Payment,
@@ -87,3 +88,115 @@ const paymentFixture: Payment = {
 
 export const getPaymentFixture = (params?: DeepPartial<Payment>): Payment =>
   deepMerge(paymentFixture, params);
+
+export const detailedPaymentFixture: DetailedPayment = {
+  id: "payment_121IopV7OU4kX5pMradVJfGAQzSJz7MGy2",
+  created: 1751527297 as Timestamp,
+  state: "in_progress",
+  locale: "fr",
+  country_of_service: "FR",
+  installments_count: 4,
+  payment_plan: [
+    {
+      id: "installment_121IopV7jNAHBV9kfHX66XiKbH88Z7K6Vh",
+      purchase_amount: 5250 as Amount,
+      original_purchase_amount: 5250 as Amount,
+      due_date: 1751527297 as Timestamp,
+      original_due_date: null,
+      date_paid: 1751527335 as Timestamp,
+      state: "paid",
+      customer_fee: 378 as Amount,
+      customer_interest: 0 as Amount,
+      customer_can_postpone_until: null,
+    },
+    {
+      id: "installment_121IopV5UspdWks53KZ1P5zTRRKG51sP9m",
+      purchase_amount: 5250 as Amount,
+      original_purchase_amount: 5250 as Amount,
+      due_date: 1754205697 as Timestamp,
+      original_due_date: null,
+      date_paid: null,
+      state: "pending",
+      customer_fee: 0 as Amount,
+      customer_interest: 0 as Amount,
+      customer_can_postpone_until: "2025-09-03" as IsoDateString,
+    },
+    {
+      id: "installment_121IopV6yEGwrRoMhkooKdJZONFD36bgPX",
+      purchase_amount: 5250 as Amount,
+      original_purchase_amount: 5250 as Amount,
+      due_date: 1756884097 as Timestamp,
+      original_due_date: null,
+      date_paid: null,
+      state: "pending",
+      customer_fee: 0 as Amount,
+      customer_interest: 0 as Amount,
+      customer_can_postpone_until: "2025-10-03" as IsoDateString,
+    },
+    {
+      id: "installment_121IopV5S0nF0Gc4IqzCSxfy1xBsG6B1tL",
+      purchase_amount: 5250 as Amount,
+      original_purchase_amount: 5250 as Amount,
+      due_date: 1759476097 as Timestamp,
+      original_due_date: null,
+      date_paid: null,
+      state: "pending",
+      customer_fee: 0 as Amount,
+      customer_interest: 0 as Amount,
+      customer_can_postpone_until: "2025-11-03" as IsoDateString,
+    },
+  ],
+  purchase_amount: 21000 as Amount,
+  fees: {
+    customer: {
+      total: 378 as Amount,
+      total_excluding_tax: 378 as Amount,
+      tax: 0 as Amount,
+    },
+  },
+  customer_interest: 0 as Amount,
+  deferred_days: 0,
+  deferred_months: 0,
+  merchant_id: "merchant_realmerchantfr",
+  merchant_brand: "France_merchant",
+  merchant_display_name: "France_merchant",
+  merchant_name: "France_merchant",
+  merchant_website: null,
+  merchant_email: [],
+  merchant_phone: null,
+  customer: {
+    id: "customer_121IopV5M3aBLL11vPQA9f3BYQcf752lpV",
+    card: {
+      id: "card_121Ioq053jQm3v6opBYKYNx4aOK0f37b5d",
+      brand: "visa",
+      iin: "400000",
+      country: "FR",
+      created: 1751527328 as Timestamp,
+      exp_month: 1,
+      exp_year: 2030,
+      last4: "0003",
+      verified: true,
+      psp: "stripe",
+    },
+    cards: [
+      {
+        id: "card_121Ioq053jQm3v6opBYKYNx4aOK0f37b5d",
+        brand: "visa",
+        iin: "400000",
+        country: "FR",
+        created: 1751527328 as Timestamp,
+        exp_month: 1,
+        exp_year: 2030,
+        last4: "0003",
+        verified: true,
+        psp: "stripe",
+      },
+    ],
+  },
+  logo_url: null,
+  return_url: null,
+};
+
+export const getDetailedPaymentFixture = (
+  params?: DeepPartial<DetailedPayment>,
+): DetailedPayment => deepMerge(detailedPaymentFixture, params);

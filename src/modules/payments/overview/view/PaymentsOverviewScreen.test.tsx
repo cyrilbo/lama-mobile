@@ -8,7 +8,7 @@ import { getPaymentsFixture } from "../infra/getPayments.fixtures";
 import { screen, userEvent } from "@testing-library/react-native";
 import { screen as routerScreen } from "expo-router/testing-library";
 import { PaymentDetailsScreen } from "../../details/view/PaymentDetailsScreen";
-import { getPaymentDetailsFixture } from "../../details/infra/getPaymentDetails.fixture";
+import { detailedPaymentFixture } from "../../shared/domain/payment.fixtures";
 
 describe("PaymentsOverviewScreen", () => {
   it("renders raw payments", async () => {
@@ -53,7 +53,7 @@ describe("PaymentsOverviewScreen", () => {
     mockServer.get("/payments", getPaymentsFixture);
     mockServer.get(
       "/payment/payment_121IopV7OU4kX5pMradVJfGAQzSJz7MGy2",
-      getPaymentDetailsFixture,
+      detailedPaymentFixture,
     );
 
     await renderRouterWithProviders({
