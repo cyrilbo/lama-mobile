@@ -12,7 +12,10 @@ import {
 import { useRouter } from "expo-router";
 import React from "react";
 import { MerchantLogo } from "./MerchantLogo";
-import { computeRemainingAmountToPay } from "../../shared/domain/payment.helpers";
+import {
+  computeRemainingAmountToPay,
+  getNextInstallment,
+} from "../../shared/domain/payment.helpers";
 import { Trans } from "@lingui/react/macro";
 
 type Props = {
@@ -24,6 +27,7 @@ export const PaymentListItem = ({ payment }: Props) => {
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
   const remainingAmountToPay = computeRemainingAmountToPay(payment);
+  const nextInstallment = getNextInstallment(payment);
 
   return (
     <TouchableOpacity
@@ -72,7 +76,9 @@ export const PaymentListItem = ({ payment }: Props) => {
       <PaymentProgress payment={payment} />
 
       <Spacer vertical={16} />
-      <PaymentNextInstallment payment={payment} />
+      {nextInstallment && (
+        <PaymentNextInstallment installment={nextInstallment} />
+      )}
     </TouchableOpacity>
   );
 };

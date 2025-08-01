@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-import { Payment } from "../../shared/domain/payment.types";
+import { Installment } from "../../shared/domain/payment.types";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import {
   useAmountFormatter,
@@ -9,20 +9,13 @@ import {
 import { Trans } from "@lingui/react/macro";
 
 type Props = {
-  payment: Payment;
+  installment: Installment;
 };
 
-export const PaymentNextInstallment = ({ payment }: Props) => {
+export const PaymentNextInstallment = ({ installment }: Props) => {
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
 
-  const nextInstallment = payment.payment_plan
-    .filter((plan) => plan.state === "pending")
-    .sort((a, b) => a.due_date - b.due_date)[0];
-
-  if (!nextInstallment) {
-    return null;
-  }
   return (
     <View style={styles.container}>
       <View>
@@ -30,12 +23,12 @@ export const PaymentNextInstallment = ({ payment }: Props) => {
           <Trans>Next installment</Trans>
         </Typography>
         <Typography variant="Text.P1.Important">
-          {formatTimestamp(nextInstallment.due_date)}
+          {formatTimestamp(installment.due_date)}
         </Typography>
       </View>
       <View>
         <Typography variant="Title.H3">
-          {formatAmount(nextInstallment.purchase_amount)}
+          {formatAmount(installment.purchase_amount)}
         </Typography>
       </View>
     </View>
