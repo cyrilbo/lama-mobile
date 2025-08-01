@@ -10,6 +10,7 @@ import {
   renderRouter,
   RenderRouterOptions,
 } from "expo-router/testing-library";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 // Using iPhone 13 metrics for tests
 const safeAreaInitialMetrics = {
@@ -38,13 +39,15 @@ const renderWithProvidersBase = (
 ) => {
   return render(element, {
     wrapper: ({ children }) => (
-      <I18nProvider>
-        <QueryClientProvider client={queryClient}>
-          <SafeAreaProvider initialMetrics={safeAreaInitialMetrics}>
-            {children}
-          </SafeAreaProvider>
-        </QueryClientProvider>
-      </I18nProvider>
+      <BottomSheetModalProvider>
+        <I18nProvider>
+          <QueryClientProvider client={queryClient}>
+            <SafeAreaProvider initialMetrics={safeAreaInitialMetrics}>
+              {children}
+            </SafeAreaProvider>
+          </QueryClientProvider>
+        </I18nProvider>
+      </BottomSheetModalProvider>
     ),
     ...options,
   });
@@ -67,13 +70,15 @@ const renderRouterWithProvidersBase = (
 ) => {
   return renderRouter(context, {
     wrapper: ({ children }) => (
-      <I18nProvider>
-        <QueryClientProvider client={queryClient}>
-          <SafeAreaProvider initialMetrics={safeAreaInitialMetrics}>
-            {children}
-          </SafeAreaProvider>
-        </QueryClientProvider>
-      </I18nProvider>
+      <BottomSheetModalProvider>
+        <I18nProvider>
+          <QueryClientProvider client={queryClient}>
+            <SafeAreaProvider initialMetrics={safeAreaInitialMetrics}>
+              {children}
+            </SafeAreaProvider>
+          </QueryClientProvider>
+        </I18nProvider>
+      </BottomSheetModalProvider>
     ),
     ...options,
   });

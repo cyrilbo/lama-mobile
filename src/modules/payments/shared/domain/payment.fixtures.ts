@@ -2,6 +2,7 @@ import { deepMerge } from "@/src/shared/helpers/deepMerge";
 import { DeepPartial } from "@/src/shared/helpers/deepPartial.types";
 import {
   Amount,
+  Customer,
   DetailedPayment,
   Installment,
   IsoDateString,
@@ -89,6 +90,39 @@ const paymentFixture: Payment = {
 export const getPaymentFixture = (params?: DeepPartial<Payment>): Payment =>
   deepMerge(paymentFixture, params);
 
+const customerFixture: Customer = {
+  id: "customer_121IopV5M3aBLL11vPQA9f3BYQcf752lpV",
+  card: {
+    id: "card_121Ioq053jQm3v6opBYKYNx4aOK0f37b5d",
+    brand: "visa",
+    iin: "400000",
+    country: "FR",
+    created: 1751527328 as Timestamp,
+    exp_month: 1,
+    exp_year: 2030,
+    last4: "0003",
+    verified: true,
+    psp: "stripe",
+  },
+  cards: [
+    {
+      id: "card_121Ioq053jQm3v6opBYKYNx4aOK0f37b5d",
+      brand: "visa",
+      iin: "400000",
+      country: "FR",
+      created: 1751527328 as Timestamp,
+      exp_month: 1,
+      exp_year: 2030,
+      last4: "0003",
+      verified: true,
+      psp: "stripe",
+    },
+  ],
+};
+
+export const getCustomerFixture = (params?: DeepPartial<Customer>): Customer =>
+  deepMerge(customerFixture, params);
+
 export const detailedPaymentFixture: DetailedPayment = {
   id: "payment_121IopV7OU4kX5pMradVJfGAQzSJz7MGy2",
   created: 1751527297 as Timestamp,
@@ -164,35 +198,7 @@ export const detailedPaymentFixture: DetailedPayment = {
   merchant_website: null,
   merchant_email: [],
   merchant_phone: null,
-  customer: {
-    id: "customer_121IopV5M3aBLL11vPQA9f3BYQcf752lpV",
-    card: {
-      id: "card_121Ioq053jQm3v6opBYKYNx4aOK0f37b5d",
-      brand: "visa",
-      iin: "400000",
-      country: "FR",
-      created: 1751527328 as Timestamp,
-      exp_month: 1,
-      exp_year: 2030,
-      last4: "0003",
-      verified: true,
-      psp: "stripe",
-    },
-    cards: [
-      {
-        id: "card_121Ioq053jQm3v6opBYKYNx4aOK0f37b5d",
-        brand: "visa",
-        iin: "400000",
-        country: "FR",
-        created: 1751527328 as Timestamp,
-        exp_month: 1,
-        exp_year: 2030,
-        last4: "0003",
-        verified: true,
-        psp: "stripe",
-      },
-    ],
-  },
+  customer: customerFixture,
   logo_url: null,
   return_url: null,
 };

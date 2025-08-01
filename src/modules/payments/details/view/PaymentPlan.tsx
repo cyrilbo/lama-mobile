@@ -1,11 +1,11 @@
-import { Payment } from "../../shared/domain/payment.types";
+import { DetailedPayment } from "../../shared/domain/payment.types";
 import { View } from "react-native";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { useLingui } from "@lingui/react/macro";
 import { Spacer } from "@/src/shared/view/components/Spacer";
 import { PaymentPlanTimelineItem } from "./PaymentPlanItem";
 type Props = {
-  payment: Payment;
+  payment: DetailedPayment;
 };
 
 export const PaymentPlan = ({ payment }: Props) => {
@@ -23,6 +23,7 @@ export const PaymentPlan = ({ payment }: Props) => {
         return (
           <View key={installment.id}>
             <PaymentPlanTimelineItem
+              customer={payment.customer}
               installment={installment}
               isLast={index === payment.payment_plan.length - 1}
             />

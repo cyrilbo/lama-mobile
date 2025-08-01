@@ -1,6 +1,9 @@
 import { screen } from "@testing-library/react-native";
 import React from "react";
-import { getInstallmentFixture } from "../../shared/domain/payment.fixtures";
+import {
+  getCustomerFixture,
+  getInstallmentFixture,
+} from "../../shared/domain/payment.fixtures";
 import { PaymentPlanTimelineItem } from "./PaymentPlanItem";
 import { renderWithProviders } from "@/src/testing/render";
 
@@ -10,10 +13,13 @@ describe("PaymentPlanItem", () => {
       state: "pending",
       date_paid: null,
     });
+    const customer = getCustomerFixture();
+
     await renderWithProviders(
       <PaymentPlanTimelineItem
         installment={pendingInstallment}
         isLast={false}
+        customer={customer}
       />,
     );
 
@@ -26,9 +32,14 @@ describe("PaymentPlanItem", () => {
   });
 
   it("renders a paid installment correctly", async () => {
+    const customer = getCustomerFixture();
     const paidInstallment = getInstallmentFixture();
     await renderWithProviders(
-      <PaymentPlanTimelineItem installment={paidInstallment} isLast={false} />,
+      <PaymentPlanTimelineItem
+        installment={paidInstallment}
+        isLast={false}
+        customer={customer}
+      />,
     );
     expect(await screen.findByText("07/03/2025")).toBeOnTheScreen();
     expect(await screen.findByText("€52.50")).toBeOnTheScreen();
