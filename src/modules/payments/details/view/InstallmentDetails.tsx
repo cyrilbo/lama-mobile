@@ -100,14 +100,18 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
           </Typography>
         </View>
       </View>
-      <Spacer vertical={8} />
-      <Button
-        label={t({
-          id: "payment.details.charged_card.change_card.cta",
-          message: "Change card",
-        })}
-        size="XS"
-      />
+      {installment.state === "pending" && (
+        <>
+          <Spacer vertical={8} />
+          <Button
+            label={t({
+              id: "payment.details.charged_card.change_card.cta",
+              message: "Change card",
+            })}
+            size="XS"
+          />
+        </>
+      )}
     </View>
   );
 };

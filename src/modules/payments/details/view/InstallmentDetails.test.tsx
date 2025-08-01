@@ -25,5 +25,22 @@ describe("InstallmentDetails", () => {
     expect(await screen.findByText("Date")).toBeOnTheScreen();
     expect(await screen.findByText("07/03/2025")).toBeOnTheScreen();
     expect(screen.queryByText("Postpone *")).not.toBeOnTheScreen();
+    expect(screen.queryByText("Change card")).not.toBeOnTheScreen();
+  });
+
+  it("allows to change the card when the installment is pending", async () => {
+    const pendingInstallment = getInstallmentFixture({
+      state: "pending",
+    });
+    const customer = getCustomerFixture();
+
+    await renderWithProviders(
+      <InstallmentDetails
+        installment={pendingInstallment}
+        customer={customer}
+      />,
+    );
+
+    expect(await screen.findByText("Change card")).toBeOnTheScreen();
   });
 });
