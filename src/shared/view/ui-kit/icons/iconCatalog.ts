@@ -17,6 +17,9 @@ import {
   TriangleAlert,
   User,
   X,
+  Hourglass,
+  CreditCard,
+  DollarSign,
 } from "lucide-react-native";
 
 export const iconCatalog = {
@@ -38,6 +41,9 @@ export const iconCatalog = {
   CircleCheck,
   User,
   ExternalLink,
+  Hourglass,
+  CreditCard,
+  DollarSign,
 };
 
 export type Icons = keyof typeof iconCatalog;

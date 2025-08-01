@@ -13,11 +13,36 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/modules/payments/overview/view/PaymentTabs.tsx:17
-msgid "Completed"
-msgstr "Complétés"
+#. placeholder {0}: formatDay(nextInstallment.customer_can_postpone_until)
+#: src/modules/payments/details/view/NextInstallment.tsx:71
+msgid "* You can postpone your next installment until {0}"
+msgstr "Vous pouvez reporter votre prélèvement jusqu'au {0}"
 
-#: src/modules/payments/overview/view/PaymentTabs.tsx:16
+#: src/modules/payments/details/view/NextInstallment.tsx:44
+msgid "Amount"
+msgstr "Montant"
+
+#: src/modules/payments/details/view/NextInstallment.tsx:82
+msgid "Charged card"
+msgstr "Carte prélevée"
+
+#: src/modules/payments/overview/view/PaymentTabs.tsx:18
+#: src/modules/payments/details/view/PaymentStateTag.tsx:13
+msgid "Completed"
+msgstr "Complété"
+
+#: src/modules/payments/details/view/NextInstallment.tsx:59
+msgid "Date"
+msgstr "Date"
+
+#. placeholder {0}: payment.customer.card.exp_month
+#. placeholder {1}: payment.customer.card.exp_year
+#: src/modules/payments/details/view/NextInstallment.tsx:89
+msgid "Exp {0}/{1}"
+msgstr "Exp {0}/{1}"
+
+#: src/modules/payments/overview/view/PaymentTabs.tsx:17
+#: src/modules/payments/details/view/PaymentStateTag.tsx:12
 msgid "In progress"
 msgstr "En cours"
 
@@ -26,12 +51,17 @@ msgid "My Payments"
 msgstr "Mes paiements"
 
 #: src/modules/payments/overview/view/PaymentNextInstallment.tsx:30
+#: src/modules/payments/details/view/NextInstallment.tsx:36
 msgid "Next installment"
 msgstr "Prochain prélèvement"
 
 #: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:66
 msgid "No payments found"
 msgstr "Aucun paiement trouvé"
+
+#: src/modules/payments/details/view/NextInstallment.tsx:68
+msgid "Postpone *"
+msgstr "Reporter *"
 
 #. placeholder {0}: formatAmount(remainingAmountToPay)
 #: src/modules/payments/overview/view/PaymentListItem.tsx:64
