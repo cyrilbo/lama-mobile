@@ -16,7 +16,7 @@ import {
   computeRemainingAmountToPay,
   getNextInstallment,
 } from "../../shared/domain/payment.helpers";
-import { Trans } from "@lingui/react/macro";
+import { useLingui } from "@lingui/react/macro";
 
 type Props = {
   payment: Payment;
@@ -26,6 +26,7 @@ export const PaymentListItem = ({ payment }: Props) => {
   const router = useRouter();
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
+  const { t } = useLingui();
   const remainingAmountToPay = computeRemainingAmountToPay(payment);
   const nextInstallment = getNextInstallment(payment);
 
@@ -64,14 +65,17 @@ export const PaymentListItem = ({ payment }: Props) => {
         </View>
       </View>
       <Spacer vertical={16} />
-      <Typography variant="Text.P2.Paragraph" style={{ textAlign: "right" }}>
-        <Trans>
-          Remaining to be paid:{" "}
+      <View>
+        <Typography variant="Text.P2.Paragraph" style={{ textAlign: "right" }}>
+          {t({
+            id: "payment.overview.remaining_to_be_paid",
+            message: `Remaining to be paid: `,
+          })}
           <Typography variant="Text.P1.Important">
             {formatAmount(remainingAmountToPay)}
           </Typography>
-        </Trans>
-      </Typography>
+        </Typography>
+      </View>
       <Spacer vertical={16} />
       <PaymentProgress payment={payment} />
 

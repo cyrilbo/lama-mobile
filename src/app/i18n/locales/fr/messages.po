@@ -13,61 +13,90 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#. placeholder {0}: formatDay(nextInstallment.customer_can_postpone_until)
-#: src/modules/payments/details/view/NextInstallment.tsx:71
-msgid "* You can postpone your next installment until {0}"
-msgstr "Vous pouvez reporter votre prélèvement jusqu'au {0}"
-
-#: src/modules/payments/details/view/NextInstallment.tsx:44
-msgid "Amount"
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/NextInstallment.tsx:40
+msgid "payment.details.amount.label"
 msgstr "Montant"
 
-#: src/modules/payments/details/view/NextInstallment.tsx:82
-msgid "Charged card"
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/NextInstallment.tsx:109
+msgid "payment.details.charged_card.change_card.cta"
+msgstr "Changer de carte"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/NextInstallment.tsx:90
+msgid "payment.details.charged_card.label"
 msgstr "Carte prélevée"
 
-#: src/modules/payments/overview/view/PaymentTabs.tsx:18
-#: src/modules/payments/details/view/PaymentStateTag.tsx:13
-msgid "Completed"
+#. js-lingui-explicit-id
+#: src/modules/payments/overview/view/PaymentTabs.tsx:21
+msgid "payment.list.filter.completed"
+msgstr "Complétés"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/PaymentStateTag.tsx:16
+msgid "payment.state.completed"
 msgstr "Complété"
 
-#: src/modules/payments/details/view/NextInstallment.tsx:59
-msgid "Date"
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/NextInstallment.tsx:58
+msgid "payment.details.date.label"
 msgstr "Date"
 
-#. placeholder {0}: payment.customer.card.exp_month
-#. placeholder {1}: payment.customer.card.exp_year
-#: src/modules/payments/details/view/NextInstallment.tsx:89
-msgid "Exp {0}/{1}"
+#. js-lingui-explicit-id
+#. placeholder {0}: customer.card.exp_month
+#. placeholder {1}: customer.card.exp_year
+#: src/modules/payments/details/view/NextInstallment.tsx:100
+msgid "payment.details.charged_card.expiry"
 msgstr "Exp {0}/{1}"
 
+#. js-lingui-explicit-id
 #: src/modules/payments/overview/view/PaymentTabs.tsx:17
-#: src/modules/payments/details/view/PaymentStateTag.tsx:12
-msgid "In progress"
+msgid "payment.list.filter.in_progress"
 msgstr "En cours"
 
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:47
-msgid "My Payments"
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/PaymentStateTag.tsx:12
+msgid "payment.state.in_progress"
+msgstr "En cours"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:52
+msgid "payment.overview.my_payments.title"
 msgstr "Mes paiements"
 
-#: src/modules/payments/overview/view/PaymentNextInstallment.tsx:30
-#: src/modules/payments/details/view/NextInstallment.tsx:36
-msgid "Next installment"
-msgstr "Prochain prélèvement"
+#. js-lingui-explicit-id
+#: src/modules/payments/overview/view/NextInstallmentOverview.tsx:24
+msgid "payment.overview.next_installment.title"
+msgstr "Prochain Prélèvement"
 
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:66
-msgid "No payments found"
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/NextInstallment.tsx:29
+msgid "payment.details.next_installment.title"
+msgstr "Prochain Prélèvement"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:74
+msgid "payment.overview.no_payments_found"
 msgstr "Aucun paiement trouvé"
 
-#: src/modules/payments/details/view/NextInstallment.tsx:68
-msgid "Postpone *"
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/NextInstallment.tsx:71
+msgid "payment.details.postpone.cta"
 msgstr "Reporter *"
 
-#. placeholder {0}: formatAmount(remainingAmountToPay)
-#: src/modules/payments/overview/view/PaymentListItem.tsx:64
-msgid "Remaining to be paid: <0>{0}</0>"
-msgstr "Reste à payer : <0>{0}</0>"
+#. js-lingui-explicit-id
+#: src/modules/payments/overview/view/PaymentListItem.tsx:70
+msgid "payment.overview.remaining_to_be_paid"
+msgstr "Restant à payer : "
 
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:39
-msgid "Total amount to pay"
-msgstr "Total à payer"
+#. js-lingui-explicit-id
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:41
+msgid "payment.overview.total_amount_to_pay.label"
+msgstr "Total à payer : "
+
+#. js-lingui-explicit-id
+#. placeholder {0}: formatDay(installment.customer_can_postpone_until)
+#: src/modules/payments/details/view/NextInstallment.tsx:79
+msgid "payment.details.date.postpone.caption"
+msgstr "Vous pouvez reporter votre prélèvement jusqu'au {0}"

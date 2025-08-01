@@ -14,8 +14,14 @@ import { useLingui } from "@lingui/react";
 
 const TABS = ["in_progress", "completed"] as const satisfies PaymentState[];
 const tabsTranslations = {
-  in_progress: msg`In progress`,
-  completed: msg`Completed`,
+  in_progress: msg({
+    id: "payment.list.filter.in_progress",
+    message: "In progress",
+  }),
+  completed: msg({
+    id: "payment.list.filter.completed",
+    message: "Completed",
+  }),
 };
 
 type Props = {

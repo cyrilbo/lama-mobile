@@ -9,8 +9,14 @@ type Props = {
 };
 
 const translations: Record<PaymentState, MessageDescriptor> = {
-  in_progress: msg`In progress`,
-  completed: msg`Completed`,
+  in_progress: msg({
+    id: "payment.state.in_progress",
+    message: "In progress",
+  }),
+  completed: msg({
+    id: "payment.state.completed",
+    message: "Completed",
+  }),
 };
 
 const levels: Record<PaymentState, TagLevel> = {

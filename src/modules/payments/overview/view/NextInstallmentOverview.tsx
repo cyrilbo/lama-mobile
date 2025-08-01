@@ -6,7 +6,7 @@ import {
   useAmountFormatter,
   useTimestampFormatter,
 } from "@/src/shared/view/helpers/formatters";
-import { Trans } from "@lingui/react/macro";
+import { useLingui } from "@lingui/react/macro";
 
 type Props = {
   installment: Installment;
@@ -15,12 +15,16 @@ type Props = {
 export const NextInstallmentOverview = ({ installment }: Props) => {
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
+  const { t } = useLingui();
 
   return (
     <View style={styles.container}>
       <View>
         <Typography variant="Text.P2.Paragraph">
-          <Trans>Next installment</Trans>
+          {t({
+            id: "payment.overview.next_installment.title",
+            message: "Next installment",
+          })}
         </Typography>
         <Typography variant="Text.P1.Important">
           {formatTimestamp(installment.due_date)}

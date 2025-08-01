@@ -26,7 +26,10 @@ export const NextInstallment = ({ installment, customer }: Props) => {
   return (
     <View style={styles.container}>
       <Typography variant="Title.H3">
-        <Trans>Next installment</Trans>
+        {t({
+          id: "payment.details.next_installment.title",
+          message: "Next installment",
+        })}
       </Typography>
 
       <Spacer vertical={16} />
@@ -34,7 +37,10 @@ export const NextInstallment = ({ installment, customer }: Props) => {
       <View style={styles.infoItem}>
         <Icon icon="DollarSign" size={20} />
         <Typography variant="Text.P1.Important">
-          <Trans>Amount</Trans>
+          {t({
+            id: "payment.details.amount.label",
+            message: "Amount",
+          })}
         </Typography>
         <View style={{ flex: 1, alignItems: "flex-end" }}>
           <Typography variant="Title.H3">
@@ -49,7 +55,10 @@ export const NextInstallment = ({ installment, customer }: Props) => {
         <Icon icon="Calendar" size={20} />
 
         <Typography variant="Text.P1.Important">
-          <Trans>Date</Trans>
+          {t({
+            id: "payment.details.date.label",
+            message: "Date",
+          })}
         </Typography>
         <View style={{ flex: 1, alignItems: "flex-end" }}>
           <Typography variant="Title.H3">
@@ -58,13 +67,19 @@ export const NextInstallment = ({ installment, customer }: Props) => {
         </View>
       </View>
       <Spacer vertical={8} />
-      <Button label={t`Postpone *`} size="XS" />
+      <Button
+        label={t({
+          id: "payment.details.postpone.cta",
+          message: "Postpone *",
+        })}
+        size="XS"
+      />
       {installment.customer_can_postpone_until && (
         <Typography variant="Text.P2.Paragraph" style={{ textAlign: "center" }}>
-          <Trans>
-            * You can postpone your next installment until{" "}
-            {formatDay(installment.customer_can_postpone_until)}
-          </Trans>
+          {t({
+            id: "payment.details.date.postpone.caption",
+            message: `You can postpone your next installment until ${formatDay(installment.customer_can_postpone_until)}`,
+          })}
         </Typography>
       )}
       <Spacer vertical={16} />
@@ -72,21 +87,31 @@ export const NextInstallment = ({ installment, customer }: Props) => {
       <View style={styles.infoItem}>
         <Icon icon="CreditCard" size={20} />
         <Typography variant="Text.P1.Important">
-          <Trans>Charged card</Trans>
+          {t({
+            id: "payment.details.charged_card.label",
+            message: "Charged card",
+          })}
         </Typography>
         <View style={{ flex: 1, alignItems: "flex-end" }}>
           <Typography variant="Title.H3">
             {`•••• •••• •••• ${customer.card.last4}`}
           </Typography>
           <Typography variant="Title.H3">
-            <Trans>
-              {`Exp ${customer.card.exp_month}/${customer.card.exp_year}`}
-            </Trans>
+            {t({
+              id: "payment.details.charged_card.expiry",
+              message: `Exp ${customer.card.exp_month}/${customer.card.exp_year}`,
+            })}
           </Typography>
         </View>
       </View>
       <Spacer vertical={8} />
-      <Button label="Changer de carte" size="XS" />
+      <Button
+        label={t({
+          id: "payment.details.charged_card.change_card.cta",
+          message: "Change card",
+        })}
+        size="XS"
+      />
     </View>
   );
 };

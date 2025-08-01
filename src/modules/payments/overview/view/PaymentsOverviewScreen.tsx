@@ -7,13 +7,15 @@ import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typog
 import { Spacer } from "@/src/shared/view/components/Spacer";
 import { useAmountFormatter } from "@/src/shared/view/helpers/formatters";
 import { useRouter } from "expo-router";
-import { Trans } from "@lingui/react/macro";
+import { useLingui } from "@lingui/react/macro";
 import { useMemo, useState } from "react";
 import { PaymentTabs } from "./PaymentTabs";
 import { PaymentState } from "../../shared/domain/payment.types";
 
 const PaymentsOverviewContent = () => {
   const { formatAmount } = useAmountFormatter();
+  const { t } = useLingui();
+
   const { data: payments } = useGetPayments();
   const router = useRouter();
   const [selectedPaymentState, setSelectedPaymentState] =
@@ -36,7 +38,10 @@ const PaymentsOverviewContent = () => {
         }}
       >
         <Typography variant="Text.P1.Important">
-          <Trans>Total amount to pay</Trans>
+          {t({
+            id: "payment.overview.total_amount_to_pay.label",
+            message: "Total amount to pay",
+          })}
         </Typography>
         <Typography variant="Title.H1">
           {formatAmount(payments.total_amount_left_to_pay)}
@@ -44,7 +49,10 @@ const PaymentsOverviewContent = () => {
       </Pressable>
       <Spacer vertical={16} />
       <Typography variant="Title.H2">
-        <Trans>My Payments</Trans>
+        {t({
+          id: "payment.overview.my_payments.title",
+          message: "My Payments",
+        })}
       </Typography>
       <Spacer vertical={16} />
 
@@ -63,7 +71,10 @@ const PaymentsOverviewContent = () => {
         ListEmptyComponent={
           <View style={styles.emptyListContainer}>
             <Typography variant="Text.P1.Important">
-              <Trans>No payments found</Trans>
+              {t({
+                id: "payment.overview.no_payments_found",
+                message: "No payments found",
+              })}
             </Typography>
           </View>
         }
