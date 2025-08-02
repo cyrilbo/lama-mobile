@@ -1,7 +1,8 @@
-import { Amount } from "./payment.types";
+import { Amount, Timestamp } from "./payment.types";
 import {
   computeAlreadyPaidAmount,
   computeRemainingAmountToPay,
+  getNextInstallment,
 } from "./payment.helpers";
 import { getPaymentFixture, getInstallmentFixture } from "./payment.fixtures";
 
@@ -113,6 +114,69 @@ describe("payment.helpers", () => {
 
       const result = computeRemainingAmountToPay(payment);
       expect(result).toBe(7000);
+    });
+  });
+
+  describe("getNextInstallment", () => {
+    it("returns null when payment plan is empty", () => {
+      const payment = getPaymentFixture({ payment_plan: [] });
+      const result = getNextInstallment(payment);
+      expect(result).toBeNull();
+    });
+
+    it("returns null when no pending installments exist", () => {
+      const payment = getPaymentFixture({
+        payment_plan: [
+          getInstallmentFixture({ state: "paid" }),
+          getInstallmentFixture({ state: "paid" }),
+        ],
+      });
+
+      const result = getNextInstallment(payment);
+      expect(result).toBeNull();
+    });
+
+    it("returns the only pending installment", () => {
+      const pendingInstallment = getInstallmentFixture({
+        id: "pending-1",
+        state: "pending",
+        due_date: 1754205697 as Timestamp,
+      });
+
+      const payment = getPaymentFixture({
+        payment_plan: [
+          getInstallmentFixture({ state: "paid" }),
+          pendingInstallment,
+        ],
+      });
+
+      const result = getNextInstallment(payment);
+      expect(result).toEqual(pendingInstallment);
+    });
+
+    it("returns the earliest pending installment when multiple exist", () => {
+      const earliestInstallment = getInstallmentFixture({
+        id: "earliest",
+        state: "pending",
+        due_date: 1600000000 as Timestamp,
+      });
+
+      const laterInstallment = getInstallmentFixture({
+        id: "later",
+        state: "pending",
+        due_date: 1700000000 as Timestamp,
+      });
+
+      const payment = getPaymentFixture({
+        payment_plan: [
+          getInstallmentFixture({ state: "paid" }),
+          laterInstallment,
+          earliestInstallment,
+        ],
+      });
+
+      const result = getNextInstallment(payment);
+      expect(result).toEqual(earliestInstallment);
     });
   });
 });
