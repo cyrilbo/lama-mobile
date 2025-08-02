@@ -19,6 +19,11 @@ msgid "payment.details.amount.label"
 msgstr "Montant"
 
 #. js-lingui-explicit-id
+#: src/shared/view/components/ErrorView.tsx:17
+msgid "error.title"
+msgstr "Une erreur est survenue"
+
+#. js-lingui-explicit-id
 #: src/modules/payments/details/view/InstallmentDetails.tsx:125
 msgid "payment.details.charged_card.change_card.cta"
 msgstr "Changer de carte"
@@ -62,12 +67,12 @@ msgstr "En cours"
 
 #. js-lingui-explicit-id
 #. placeholder {0}: index + 1
-#: src/modules/payments/details/view/PaymentPlanItem.tsx:131
+#: src/modules/payments/details/view/PaymentPlanItem.tsx:128
 msgid "payment.details.payment_plan.item.details.title"
 msgstr "Prélèvement {0} sur {totalInstallments}"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:52
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:53
 msgid "payment.overview.my_payments.title"
 msgstr "Mes paiements"
 
@@ -82,7 +87,7 @@ msgid "payment.details.next_installment.title"
 msgstr "Prochain Prélèvement"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:74
+#: src/modules/payments/overview/view/PaymentList.tsx:18
 msgid "payment.overview.no_payments_found"
 msgstr "Aucun paiement trouvé"
 
@@ -93,7 +98,7 @@ msgstr "Payé"
 
 #. js-lingui-explicit-id
 #. placeholder {0}: formatTimestamp(installment.date_paid)
-#: src/modules/payments/details/view/PaymentPlanItem.tsx:107
+#: src/modules/payments/details/view/PaymentPlanItem.tsx:104
 msgid "payment.details.payment_plan.item.paid_at"
 msgstr "Payé le {0}"
 
@@ -118,12 +123,17 @@ msgid "payment.details.postpone.cta"
 msgstr "Reporter *"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/overview/view/PaymentListItem.tsx:70
+#: src/modules/payments/overview/view/PaymentListItem.tsx:75
 msgid "payment.overview.remaining_to_be_paid"
 msgstr "Restant à payer : "
 
 #. js-lingui-explicit-id
-#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:41
+#: src/shared/view/components/ErrorView.tsx:22
+msgid "error.retry"
+msgstr "Réessayer"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:42
 msgid "payment.overview.total_amount_to_pay.label"
 msgstr "Total à payer : "
 
