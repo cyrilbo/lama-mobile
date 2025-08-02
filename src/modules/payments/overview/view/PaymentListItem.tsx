@@ -10,7 +10,7 @@ import {
   useTimestampFormatter,
 } from "@/src/shared/view/helpers/formatters";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { memo } from "react";
 import { MerchantLogo } from "./MerchantLogo";
 import {
   computeRemainingAmountToPay,
@@ -22,7 +22,9 @@ type Props = {
   payment: Payment;
 };
 
-export const PaymentListItem = ({ payment }: Props) => {
+export const PaymentListItem = memo(function PaymentListItem({
+  payment,
+}: Props) {
   const router = useRouter();
   const { formatAmount } = useAmountFormatter();
   const { formatTimestamp } = useTimestampFormatter();
@@ -90,7 +92,7 @@ export const PaymentListItem = ({ payment }: Props) => {
       )}
     </TouchableOpacity>
   );
-};
+});
 
 const styles = StyleSheet.create((theme) => ({
   container: {
