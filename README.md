@@ -1,4 +1,4 @@
-# Welcome to your Expo app 👋
+# Welcome to Lama App
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
@@ -7,34 +7,63 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 1. Install dependencies
 
    ```bash
-   npm install
+   yarn install
    ```
 
-2. Start the app
+2. Start metro bundler
 
    ```bash
-   npx expo start
+   yarn start
    ```
 
-In the output, you'll find options to open the app in a
+3. Build the app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   yarn ios
+   # or
+   yarn android
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+4. The mocked backend is already running in the cloud. Anytime `./mockoon-export.json` or `./server/Dockerfile.yml` is edited, a new instance is built and run.
 
-## Learn more
+## Testing
 
-To learn more about developing your project with Expo, look at the following resources:
+To run tests locally you can run:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- `yarn test` - Runs the complete test suite (types + linting + Jest tests)
+- `yarn test:types` - Type checking using TypeScript compiler
+- `yarn test:lint` - Code linting with ESLint
+- `yarn test:jest` - Unit tests with Jest
 
-## Join the community
+## Internationalization
 
-Join our community of developers creating universal apps.
+This app supports multiple languages:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- English (en) - default
+- French (fr)
+
+It uses [lingui](https://lingui.dev/).
+
+### I18n Commands
+
+- `yarn i18n:extract` - Extract translatable strings from code
+- `yarn i18n:compile` - Compile translation files
+- `yarn i18n:update` - Extract and compile in one command
+
+Translation files are located in `src/app/i18n/locales/`.
+
+## UI Kit & Design System
+
+The app includes a design system located in `src/shared/view/ui-kit/`. It's a copy of a WIP design system I had on hand. I did not put any effort in improving it and used it as it was.
+
+### Demo
+
+Access the UI Kit demo by long pressing the "Total amount to pay" component on the home page
+
+## What can be added / improved
+
+- Error Handling + Monitoring
+- Type safety on navigation params with zod
+- Accessibility
+- Better usage of unistyles v3: too many useUnistyles that reduce perf optimization gains provided by the lib. I had to quickly migrate ui-kit from v2 to v3.
+- BottomSheet integration tests
