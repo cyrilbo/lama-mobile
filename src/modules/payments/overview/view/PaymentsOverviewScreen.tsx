@@ -1,7 +1,6 @@
 import { ScreenTemplate } from "@/src/shared/view/components/ScreenTemplate";
-import { FlatList, Pressable, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { useGetPayments } from "../infra/useGetPayments";
-import { PaymentListItem } from "./PaymentListItem";
 import { StyleSheet } from "react-native-unistyles";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { Spacer } from "@/src/shared/view/components/Spacer";
@@ -11,6 +10,7 @@ import { useLingui } from "@lingui/react/macro";
 import { useMemo, useState } from "react";
 import { PaymentTabs } from "./PaymentTabs";
 import { PaymentState } from "../../shared/domain/payment.types";
+import { PaymentList } from "./PaymentList";
 
 const PaymentsOverviewContent = () => {
   const { formatAmount } = useAmountFormatter();
@@ -25,6 +25,7 @@ const PaymentsOverviewContent = () => {
       return selectedPaymentState === payment.state;
     });
   }, [payments, selectedPaymentState]);
+
   return (
     <View style={styles.container}>
       <Pressable
@@ -61,24 +62,7 @@ const PaymentsOverviewContent = () => {
         setSelectedPaymentState={setSelectedPaymentState}
       />
       <Spacer vertical={16} />
-      <FlatList
-        data={paymentsToRender}
-        renderItem={({ item }) => <PaymentListItem payment={item} />}
-        keyExtractor={(item) => item.id}
-        ItemSeparatorComponent={() => <Spacer vertical={16} />}
-        style={{ flex: 1 }}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={
-          <View style={styles.emptyListContainer}>
-            <Typography variant="Text.P1.Important">
-              {t({
-                id: "payment.overview.no_payments_found",
-                message: "No payments found",
-              })}
-            </Typography>
-          </View>
-        }
-      />
+      <PaymentList payments={paymentsToRender} />
     </View>
   );
 };
