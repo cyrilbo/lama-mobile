@@ -33,7 +33,7 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
             message: "Amount",
           })}
         </Typography>
-        <View style={{ flex: 1, alignItems: "flex-end" }}>
+        <View style={styles.infoItemValue}>
           <Typography variant="Title.H3">
             {formatAmount(installment.purchase_amount)}
           </Typography>
@@ -50,7 +50,7 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
             message: "Due date",
           })}
         </Typography>
-        <View style={{ flex: 1, alignItems: "flex-end" }}>
+        <View style={styles.infoItemValue}>
           <Typography variant="Title.H3">
             {formatTimestamp(installment.due_date)}
           </Typography>
@@ -68,7 +68,7 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
           />
           <Typography
             variant="Text.P2.Paragraph"
-            style={{ textAlign: "center" }}
+            style={styles.postponeCaption}
           >
             {t({
               id: "payment.details.date.postpone.caption",
@@ -88,7 +88,7 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
                 message: "Paid date",
               })}
             </Typography>
-            <View style={{ flex: 1, alignItems: "flex-end" }}>
+            <View style={styles.infoItemValue}>
               <Typography variant="Title.H3">
                 {formatTimestamp(installment.date_paid)}
               </Typography>
@@ -106,7 +106,7 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
             message: "Charged card",
           })}
         </Typography>
-        <View style={{ flex: 1, alignItems: "flex-end" }}>
+        <View style={styles.infoItemValue}>
           <Typography variant="Title.H3">
             {`•••• •••• •••• ${customer.card.last4}`}
           </Typography>
@@ -138,5 +138,12 @@ const styles = StyleSheet.create({
   infoItem: {
     flexDirection: "row",
     gap: 4,
+  },
+  infoItemValue: {
+    flex: 1,
+    alignItems: "flex-end",
+  },
+  postponeCaption: {
+    textAlign: "center",
   },
 });

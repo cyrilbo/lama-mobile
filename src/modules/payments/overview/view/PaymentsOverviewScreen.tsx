@@ -28,7 +28,7 @@ const PaymentsOverviewContent = () => {
   return (
     <View style={styles.container}>
       <Pressable
-        style={{ alignItems: "center" }}
+        style={styles.totalAmountToPayContainer}
         onLongPress={() => {
           if (__DEV__) {
             router.navigate({
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
-  emptyListContainer: {
+  totalAmountToPayContainer: {
     alignItems: "center",
   },
 });

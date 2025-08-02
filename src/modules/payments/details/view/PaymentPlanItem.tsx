@@ -71,10 +71,7 @@ export const PaymentPlanTimelineItem = ({
         pressBehavior={"close"}
         appearsOnIndex={0}
         disappearsOnIndex={-1}
-        style={{
-          ...StyleSheet.absoluteFillObject,
-          backgroundColor: "rgba(0, 0, 0)",
-        }}
+        style={styles.backdrop}
       />
     ),
     [],
@@ -175,5 +172,9 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   chevron: {
     alignSelf: "center",
+  },
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0)",
   },
 }));

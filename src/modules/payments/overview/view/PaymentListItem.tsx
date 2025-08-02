@@ -66,7 +66,10 @@ export const PaymentListItem = ({ payment }: Props) => {
       </View>
       <Spacer vertical={16} />
       <View>
-        <Typography variant="Text.P2.Paragraph" style={{ textAlign: "right" }}>
+        <Typography
+          variant="Text.P2.Paragraph"
+          style={styles.remainingToBePaid}
+        >
           {t({
             id: "payment.overview.remaining_to_be_paid",
             message: `Remaining to be paid: `,
@@ -103,5 +106,8 @@ const styles = StyleSheet.create((theme) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  remainingToBePaid: {
+    textAlign: "right",
   },
 }));
