@@ -11,6 +11,17 @@ import { PaymentDetailsScreen } from "../../details/view/PaymentDetailsScreen";
 import { detailedPaymentFixture } from "../../shared/domain/payment.fixtures";
 
 describe("PaymentsOverviewScreen", () => {
+  it("renders an error page when the request fails", async () => {
+    mockServer.get("/payments", {
+      response: {
+        status: 500,
+      },
+    });
+    await renderWithProviders(<PaymentsOverviewScreen />);
+    expect(await screen.findByText("An error occurred")).toBeOnTheScreen();
+    expect(await screen.findByText("Retry")).toBeOnTheScreen();
+  });
+
   it("displays the total amount due", async () => {
     mockServer.get("/payments", getPaymentsFixture);
 

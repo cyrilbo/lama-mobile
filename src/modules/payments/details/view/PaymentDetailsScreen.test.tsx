@@ -9,6 +9,18 @@ import {
 import { screen } from "@testing-library/react-native";
 
 describe("PaymentDetailsScreen", () => {
+  it("renders an error page when the request fails", async () => {
+    mockServer.get("/payment/payment_121IopV7OU4kX5pMradVJfGAQzSJz7MGy2", {
+      response: {
+        status: 500,
+      },
+    });
+    await renderWithProviders(
+      <PaymentDetailsScreen paymentId="payment_121IopV7OU4kX5pMradVJfGAQzSJz7MGy2" />,
+    );
+    expect(await screen.findByText("An error occurred")).toBeOnTheScreen();
+    expect(await screen.findByText("Retry")).toBeOnTheScreen();
+  });
   it("displays the next installment if there is one", async () => {
     mockServer.get(
       "/payment/payment_121IopV7OU4kX5pMradVJfGAQzSJz7MGy2",
