@@ -40,7 +40,9 @@ export const PaymentHeader = ({ payment }: Props) => {
             {formatAmount(payment.purchase_amount)}
           </Typography>
         </View>
-        <PaymentStateTag paymentState={payment.state} />
+        <View style={styles.paymentStateTagContainer}>
+          <PaymentStateTag paymentState={payment.state} />
+        </View>
       </View>
     </>
   );
@@ -54,5 +56,8 @@ const styles = StyleSheet.create({
   },
   column: {
     flex: 1,
+  },
+  paymentStateTagContainer: {
+    alignSelf: "flex-start",
   },
 });

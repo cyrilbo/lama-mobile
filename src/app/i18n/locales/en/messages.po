@@ -61,9 +61,10 @@ msgid "payment.state.in_progress"
 msgstr "In progress"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/PaymentPlanItem.tsx:125
+#. placeholder {0}: index + 1
+#: src/modules/payments/details/view/PaymentPlanItem.tsx:131
 msgid "payment.details.payment_plan.item.details.title"
-msgstr "Installment details"
+msgstr "Installment {0} of {totalInstallments}"
 
 #. js-lingui-explicit-id
 #: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:52
@@ -86,8 +87,13 @@ msgid "payment.overview.no_payments_found"
 msgstr "No payments found"
 
 #. js-lingui-explicit-id
+#: src/modules/payments/details/view/InstallmentStateTag.tsx:16
+msgid "payment.installment.state.paid"
+msgstr "Paid"
+
+#. js-lingui-explicit-id
 #. placeholder {0}: formatTimestamp(installment.date_paid)
-#: src/modules/payments/details/view/PaymentPlanItem.tsx:102
+#: src/modules/payments/details/view/PaymentPlanItem.tsx:107
 msgid "payment.details.payment_plan.item.paid_at"
 msgstr "Paid at {0}"
 
@@ -100,6 +106,11 @@ msgstr "Paid date"
 #: src/modules/payments/details/view/PaymentPlan.tsx:16
 msgid "payment.details.payment_plan.title"
 msgstr "Payment plan"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/InstallmentStateTag.tsx:12
+msgid "payment.installment.state.pending"
+msgstr "Pending"
 
 #. js-lingui-explicit-id
 #: src/modules/payments/details/view/InstallmentDetails.tsx:63

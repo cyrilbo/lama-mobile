@@ -17,6 +17,7 @@ import {
 } from "@gorhom/bottom-sheet";
 import { useRef, useCallback } from "react";
 import { InstallmentDetails } from "./InstallmentDetails";
+import { InstallmentStateTag } from "./InstallmentStateTag";
 
 type IconProps = {
   installment: Installment;
@@ -38,17 +39,21 @@ const Icon = ({ installment }: IconProps) => {
 type Props = {
   installment: Installment;
   customer: Customer;
-  isLast: boolean;
+  index: number;
+  totalInstallments: number;
 };
 
 export const PaymentPlanTimelineItem = ({
   installment,
   customer,
-  isLast,
+  index,
+  totalInstallments,
 }: Props) => {
   const { formatTimestamp } = useTimestampFormatter();
   const { formatAmount } = useAmountFormatter();
   const { t } = useLingui();
+
+  const isLast = index === totalInstallments - 1;
 
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -121,13 +126,17 @@ export const PaymentPlanTimelineItem = ({
         backdropComponent={renderBackdrop}
       >
         <BottomSheetView style={styles.bottomSheetContentContainer}>
-          <Typography variant="Title.H3">
-            {t({
-              id: "payment.details.payment_plan.item.details.title",
-              message: "Installment details",
-            })}
-          </Typography>
-          <Spacer vertical={16} />
+          <View style={styles.bottomSheetHeader}>
+            <Typography variant="Title.H3">
+              {t({
+                id: "payment.details.payment_plan.item.details.title",
+                message: `Installment ${index + 1} of ${totalInstallments}`,
+              })}
+            </Typography>
+            <Spacer vertical={8} />
+            <InstallmentStateTag installmentState={installment.state} />
+          </View>
+          <Spacer vertical={32} />
           <InstallmentDetails installment={installment} customer={customer} />
         </BottomSheetView>
       </BottomSheetModal>
@@ -140,6 +149,9 @@ const styles = StyleSheet.create((theme, rt) => ({
     flex: 1,
     padding: 16,
     paddingBottom: 16 + rt.insets.bottom,
+  },
+  bottomSheetHeader: {
+    alignItems: "center",
   },
   container: {
     flexDirection: "row",

@@ -25,7 +25,8 @@ export const PaymentPlan = ({ payment }: Props) => {
             <PaymentPlanTimelineItem
               customer={payment.customer}
               installment={installment}
-              isLast={index === payment.payment_plan.length - 1}
+              index={index}
+              totalInstallments={payment.payment_plan.length}
             />
             <Spacer vertical={8} />
           </View>

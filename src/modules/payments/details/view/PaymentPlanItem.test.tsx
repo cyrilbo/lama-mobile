@@ -18,8 +18,9 @@ describe("PaymentPlanItem", () => {
     await renderWithProviders(
       <PaymentPlanTimelineItem
         installment={pendingInstallment}
-        isLast={false}
         customer={customer}
+        index={0}
+        totalInstallments={1}
       />,
     );
 
@@ -37,8 +38,9 @@ describe("PaymentPlanItem", () => {
     await renderWithProviders(
       <PaymentPlanTimelineItem
         installment={paidInstallment}
-        isLast={false}
         customer={customer}
+        index={0}
+        totalInstallments={1}
       />,
     );
     expect(await screen.findByText("07/03/2025")).toBeOnTheScreen();

@@ -75,7 +75,6 @@ const styles = StyleSheet.create(({ components, sizes }) => ({
     backgroundColor: disabled
       ? components.tag.disabled["background-color"]
       : components.tag.level[level]["background-color"],
-    alignSelf: "flex-start",
   }),
   crossIconContainer: {
     width: components.tag["close-icon-size"],
