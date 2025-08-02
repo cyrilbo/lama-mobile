@@ -11,12 +11,13 @@ import { PaymentDetailsScreen } from "../../details/view/PaymentDetailsScreen";
 import { detailedPaymentFixture } from "../../shared/domain/payment.fixtures";
 
 describe("PaymentsOverviewScreen", () => {
-  it("renders raw payments", async () => {
+  it("displays the total amount due", async () => {
     mockServer.get("/payments", getPaymentsFixture);
 
     await renderWithProviders(<PaymentsOverviewScreen />);
 
-    expect(await screen.findByText("€210.00")).toBeOnTheScreen();
+    expect(await screen.findByText("Total amount to pay")).toBeOnTheScreen();
+    expect(await screen.findByText("€407.50")).toBeOnTheScreen();
   });
 
   it("can switch between in progress and completed payments", async () => {
