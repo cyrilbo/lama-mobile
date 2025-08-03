@@ -1,0 +1,10 @@
+appId: com.cyril.bonaccini.lama
+---
+- launchApp:
+    clearState: true
+- tapOn: '03/07/2025 France_merchant 210,00 € Restant à payer : 157,50 € Prochain Prélèvement 03/08/2025 52,50 €'
+- assertVisible: Prochain Prélèvement
+- tapOn: Changer de carte
+- assertVisible:
+    text: Carte mise à jour ✅
+    index: 1

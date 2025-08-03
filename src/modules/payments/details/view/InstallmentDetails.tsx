@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { useLingui } from "@lingui/react/macro";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
@@ -65,6 +65,15 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
               message: "Postpone *",
             })}
             size="XS"
+            onPress={() => {
+              // TODO: Implement postpone flow, this is for testing purposes
+              Alert.alert(
+                t({
+                  id: "payment.details.postpone.success.title",
+                  message: "Installment postponed ✅",
+                }),
+              );
+            }}
           />
           <Typography
             variant="Text.P2.Paragraph"
@@ -127,6 +136,15 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
               message: "Change card",
             })}
             size="XS"
+            onPress={() => {
+              // TODO: Implement change card flow, this is for testing purposes
+              Alert.alert(
+                t({
+                  id: "payment.details.charged_card.change_card.success.title",
+                  message: "Card changed ✅",
+                }),
+              );
+            }}
           />
         </>
       )}

@@ -122,6 +122,7 @@ export const PaymentPlanTimelineItem = ({
         ref={bottomSheetModalRef}
         onDismiss={handleDismiss}
         backdropComponent={renderBackdrop}
+        accessible={false}
       >
         <BottomSheetView style={styles.bottomSheetContentContainer}>
           <View style={styles.bottomSheetHeader}>

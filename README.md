@@ -34,6 +34,7 @@ To run tests locally you can run:
 - `yarn test:types` - Type checking using TypeScript compiler
 - `yarn test:lint` - Code linting with ESLint
 - `yarn test:jest` - Unit tests with Jest
+- `yarn test:e2e` - Run E2E tests in a running simulator. You'll need [maestro cli](https://docs.maestro.dev/getting-started/installing-maestro)
 
 ## Internationalization
 

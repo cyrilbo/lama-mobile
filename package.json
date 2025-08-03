@@ -8,6 +8,7 @@
     "test:types": "tsc",
     "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives --max-warnings 0 --cache --cache-strategy content --cache-location .cache/eslint.json",
     "test:jest": "jest --runInBand --bail",
+    "test:e2e": "maestro test e2e/lama",
     "i18n:extract": "lingui extract --clean",
     "i18n:compile": "lingui compile",
     "i18n:update": "lingui extract && lingui compile",

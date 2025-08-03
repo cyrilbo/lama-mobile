@@ -1,0 +1,13 @@
+appId: com.cyril.bonaccini.lama
+---
+- launchApp:
+    clearState: true
+- tapOn: Complétés
+- tapOn: 03/07/2025
+- assertVisible: Complété
+- tapOn: 03/07/2025 52,50 € Payé le 03/07/2025
+- assertVisible:
+    text: Bottom Sheet
+    index: 1
+- assertVisible: Prélèvement 1 sur 4
+- assertVisible: Payé

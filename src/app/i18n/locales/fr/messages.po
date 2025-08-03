@@ -24,12 +24,17 @@ msgid "error.title"
 msgstr "Une erreur est survenue"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/InstallmentDetails.tsx:125
+#: src/modules/payments/details/view/InstallmentDetails.tsx:140
+msgid "payment.details.charged_card.change_card.success.title"
+msgstr "Carte mise à jour ✅"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/InstallmentDetails.tsx:133
 msgid "payment.details.charged_card.change_card.cta"
 msgstr "Changer de carte"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/InstallmentDetails.tsx:104
+#: src/modules/payments/details/view/InstallmentDetails.tsx:112
 msgid "payment.details.charged_card.label"
 msgstr "Carte prélevée"
 
@@ -51,7 +56,7 @@ msgstr "Échéance"
 #. js-lingui-explicit-id
 #. placeholder {0}: customer.card.exp_month
 #. placeholder {1}: customer.card.exp_year
-#: src/modules/payments/details/view/InstallmentDetails.tsx:114
+#: src/modules/payments/details/view/InstallmentDetails.tsx:122
 msgid "payment.details.charged_card.expiry"
 msgstr "Exp {0}/{1}"
 
@@ -67,9 +72,14 @@ msgstr "En cours"
 
 #. js-lingui-explicit-id
 #. placeholder {0}: index + 1
-#: src/modules/payments/details/view/PaymentPlanItem.tsx:128
+#: src/modules/payments/details/view/PaymentPlanItem.tsx:129
 msgid "payment.details.payment_plan.item.details.title"
 msgstr "Prélèvement {0} sur {totalInstallments}"
+
+#. js-lingui-explicit-id
+#: src/modules/payments/details/view/InstallmentDetails.tsx:70
+msgid "payment.details.postpone.success.title"
+msgstr "Paiement reporté ✅"
 
 #. js-lingui-explicit-id
 #: src/modules/payments/overview/view/PaymentsOverviewScreen.tsx:53
@@ -103,7 +113,7 @@ msgid "payment.details.payment_plan.item.paid_at"
 msgstr "Payé le {0}"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/details/view/InstallmentDetails.tsx:86
+#: src/modules/payments/details/view/InstallmentDetails.tsx:94
 msgid "payment.details.paid_date.label"
 msgstr "Date de paiement"
 
@@ -123,7 +133,7 @@ msgid "payment.details.postpone.cta"
 msgstr "Reporter *"
 
 #. js-lingui-explicit-id
-#: src/modules/payments/overview/view/PaymentListItem.tsx:75
+#: src/modules/payments/overview/view/PaymentListItem.tsx:78
 msgid "payment.overview.remaining_to_be_paid"
 msgstr "Restant à payer : "
 
@@ -139,6 +149,6 @@ msgstr "Total à payer : "
 
 #. js-lingui-explicit-id
 #. placeholder {0}: formatDay(installment.customer_can_postpone_until)
-#: src/modules/payments/details/view/InstallmentDetails.tsx:73
+#: src/modules/payments/details/view/InstallmentDetails.tsx:81
 msgid "payment.details.date.postpone.caption"
 msgstr "* Vous pouvez reporter votre prélèvement jusqu'au {0}"

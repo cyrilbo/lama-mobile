@@ -1,0 +1,17 @@
+appId: com.cyril.bonaccini.lama
+---
+- launchApp:
+    clearState: true
+- tapOn: 03/07/2025
+- assertVisible: En cours
+- scrollUntilVisible:
+    element: 03/10/2025
+- tapOn: 03/10/2025 52,50 €
+
+- assertVisible:
+    text: Bottom Sheet
+    index: 1
+- assertVisible: Prélèvement 4 sur 4
+- assertVisible: En attente
+- assertVisible: Reporter *
+- assertVisible: Changer de carte
