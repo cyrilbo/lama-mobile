@@ -8,9 +8,9 @@ export const timestampSchema = z.number().int().positive().brand("timestamp");
 
 export type Timestamp = z.infer<typeof timestampSchema>;
 
-export const isoDateStringSchema = z.iso.date().brand("isoDateString");
+export const dayStringSchema = z.iso.date().brand("dayString");
 
-export type IsoDateString = z.infer<typeof isoDateStringSchema>;
+export type DayString = z.infer<typeof dayStringSchema>;
 
 export const installmentStateSchema = z.enum(["pending", "paid"]);
 export type InstallmentState = z.infer<typeof installmentStateSchema>;
@@ -25,7 +25,7 @@ const installmentSchema = z.object({
   state: installmentStateSchema,
   customer_fee: amountSchema,
   customer_interest: amountSchema,
-  customer_can_postpone_until: isoDateStringSchema.nullable(),
+  customer_can_postpone_until: dayStringSchema.nullable(),
 });
 
 export type Installment = z.infer<typeof installmentSchema>;

@@ -5,7 +5,7 @@ import {
   Customer,
   DetailedPayment,
   Installment,
-  IsoDateString,
+  DayString,
   Payment,
   Timestamp,
 } from "./payment.types";
@@ -57,7 +57,7 @@ const paymentFixture: Payment = {
       state: "pending",
       customer_fee: 0 as Amount,
       customer_interest: 0 as Amount,
-      customer_can_postpone_until: "2025-09-03" as IsoDateString,
+      customer_can_postpone_until: "2025-09-03" as DayString,
     },
     {
       id: "installment_121IopV6yEGwrRoMhkooKdJZONFD36bgPX",
@@ -69,7 +69,7 @@ const paymentFixture: Payment = {
       state: "pending",
       customer_fee: 0 as Amount,
       customer_interest: 0 as Amount,
-      customer_can_postpone_until: "2025-10-03" as IsoDateString,
+      customer_can_postpone_until: "2025-10-03" as DayString,
     },
     {
       id: "installment_121IopV5S0nF0Gc4IqzCSxfy1xBsG6B1tL",
@@ -81,7 +81,7 @@ const paymentFixture: Payment = {
       state: "pending",
       customer_fee: 0 as Amount,
       customer_interest: 0 as Amount,
-      customer_can_postpone_until: "2025-11-03" as IsoDateString,
+      customer_can_postpone_until: "2025-11-03" as DayString,
     },
   ],
   logo_url: null,
@@ -153,7 +153,7 @@ export const detailedPaymentFixture: DetailedPayment = {
       state: "pending",
       customer_fee: 0 as Amount,
       customer_interest: 0 as Amount,
-      customer_can_postpone_until: "2025-09-03" as IsoDateString,
+      customer_can_postpone_until: "2025-09-03" as DayString,
     },
     {
       id: "installment_121IopV6yEGwrRoMhkooKdJZONFD36bgPX",
@@ -165,7 +165,7 @@ export const detailedPaymentFixture: DetailedPayment = {
       state: "pending",
       customer_fee: 0 as Amount,
       customer_interest: 0 as Amount,
-      customer_can_postpone_until: "2025-10-03" as IsoDateString,
+      customer_can_postpone_until: "2025-10-03" as DayString,
     },
     {
       id: "installment_121IopV5S0nF0Gc4IqzCSxfy1xBsG6B1tL",
@@ -177,7 +177,7 @@ export const detailedPaymentFixture: DetailedPayment = {
       state: "pending",
       customer_fee: 0 as Amount,
       customer_interest: 0 as Amount,
-      customer_can_postpone_until: "2025-11-03" as IsoDateString,
+      customer_can_postpone_until: "2025-11-03" as DayString,
     },
   ],
   purchase_amount: 21000 as Amount,

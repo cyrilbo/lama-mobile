@@ -1,6 +1,6 @@
 import {
   Amount,
-  IsoDateString,
+  DayString,
   Timestamp,
 } from "@/src/modules/payments/shared/domain/payment.types";
 import { useLingui } from "@lingui/react";
@@ -32,11 +32,12 @@ export const useTimestampFormatter = () => {
 export const useDayFormatter = () => {
   const { i18n } = useLingui();
   return {
-    formatDay: (date: IsoDateString) =>
-      i18n.date(new Date(date), {
+    formatDay: (date: DayString) => {
+      return i18n.date(new Date(date), {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
-      }),
+      });
+    },
   };
 };

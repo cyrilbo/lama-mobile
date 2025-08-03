@@ -1,6 +1,6 @@
 import {
   Amount,
-  IsoDateString,
+  DayString,
   Timestamp,
 } from "../../shared/domain/payment.types";
 import { GetPaymentsResponse } from "./getPayments.types";
@@ -38,7 +38,7 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           state: "pending",
           customer_fee: 0 as Amount,
           customer_interest: 0 as Amount,
-          customer_can_postpone_until: "2025-09-03" as IsoDateString,
+          customer_can_postpone_until: "2025-09-03" as DayString,
         },
         {
           id: "installment_121IopV6yEGwrRoMhkooKdJZONFD36bgPX",
@@ -50,7 +50,7 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           state: "pending",
           customer_fee: 0 as Amount,
           customer_interest: 0 as Amount,
-          customer_can_postpone_until: "2025-10-03" as IsoDateString,
+          customer_can_postpone_until: "2025-10-03" as DayString,
         },
         {
           id: "installment_121IopV5S0nF0Gc4IqzCSxfy1xBsG6B1tL",
@@ -62,7 +62,7 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           state: "pending",
           customer_fee: 0 as Amount,
           customer_interest: 0 as Amount,
-          customer_can_postpone_until: "2025-11-03" as IsoDateString,
+          customer_can_postpone_until: "2025-11-03" as DayString,
         },
       ],
       logo_url: null,
@@ -109,7 +109,7 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           state: "pending",
           customer_fee: 0 as Amount,
           customer_interest: 0 as Amount,
-          customer_can_postpone_until: "2025-09-25" as IsoDateString,
+          customer_can_postpone_until: "2025-09-25" as DayString,
         },
         {
           id: "installment_121FwSn4T1Ua42v2fLsUPwwJE08kc1dYnk",
@@ -121,7 +121,7 @@ export const getPaymentsFixture: GetPaymentsResponse = {
           state: "pending",
           customer_fee: 0 as Amount,
           customer_interest: 0 as Amount,
-          customer_can_postpone_until: "2025-10-26" as IsoDateString,
+          customer_can_postpone_until: "2025-10-26" as DayString,
         },
       ],
       logo_url: null,
