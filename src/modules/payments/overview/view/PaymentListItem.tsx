@@ -54,7 +54,7 @@ export const PaymentListItem = memo(function PaymentListItem({
         />
         <Spacer horizontal={16} />
         <View style={styles.rowContainer}>
-          <View>
+          <View style={{ flex: 1 }}>
             <Typography variant="Text.P2.Important" color="colors.text.medium">
               {formatTimestamp(payment.created)}
             </Typography>
@@ -103,12 +103,14 @@ const styles = StyleSheet.create((theme) => ({
   },
   row: {
     flexDirection: "row",
+    flex: 1,
   },
   rowContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    gap: 4,
   },
   remainingToBePaid: {
     textAlign: "right",

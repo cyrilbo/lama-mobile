@@ -117,15 +117,17 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
         </Typography>
         <View style={styles.infoItemValue}>
           <Typography variant="Title.H3">
-            {`•••• •••• •••• ${customer.card.last4}`}
-          </Typography>
-          <Typography variant="Title.H3">
-            {t({
-              id: "payment.details.charged_card.expiry",
-              message: `Exp ${customer.card.exp_month}/${customer.card.exp_year}`,
-            })}
+            {`•••• ${customer.card.last4}`}
           </Typography>
         </View>
+      </View>
+      <View style={styles.infoItemValue}>
+        <Typography variant="Title.H3">
+          {t({
+            id: "payment.details.charged_card.expiry",
+            message: `Exp ${customer.card.exp_month}/${customer.card.exp_year}`,
+          })}
+        </Typography>
       </View>
       {installment.state === "pending" && (
         <>
