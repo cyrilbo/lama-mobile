@@ -155,6 +155,7 @@ export const InstallmentDetails = ({ installment, customer }: Props) => {
 const styles = StyleSheet.create({
   infoItem: {
     flexDirection: "row",
+    alignItems: "center",
     gap: 4,
   },
   infoItemValue: {
