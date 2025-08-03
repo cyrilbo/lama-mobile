@@ -1,13 +1,14 @@
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { MerchantLogo } from "../../overview/view/MerchantLogo";
 import { Payment } from "../../shared/domain/payment.types";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { useAmountFormatter } from "@/src/shared/view/helpers/formatters";
 import { PaymentStateTag } from "./PaymentStateTag";
 import { Icon } from "@/src/shared/view/ui-kit/icons/Icon";
 import { Spacer } from "@/src/shared/view/components/Spacer";
 import { useRouter } from "expo-router";
+import { PressableWithFeedback } from "@/src/shared/view/components/PressableWithFeedback";
 
 type Props = {
   payment: Payment;
@@ -19,9 +20,9 @@ export const PaymentHeader = ({ payment }: Props) => {
   return (
     <>
       <Spacer vertical={16} />
-      <TouchableOpacity onPress={() => router.back()}>
+      <PressableWithFeedback onPress={() => router.back()}>
         <Icon icon="ArrowLeft" size={24} />
-      </TouchableOpacity>
+      </PressableWithFeedback>
       <Spacer vertical={16} />
       <View style={styles.container}>
         <MerchantLogo

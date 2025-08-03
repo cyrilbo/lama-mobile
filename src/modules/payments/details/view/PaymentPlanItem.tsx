@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import { Customer, Installment } from "../../shared/domain/payment.types";
 import { IconButton } from "@/src/shared/view/ui-kit/icons/Icon";
 import { Spacer } from "@/src/shared/view/components/Spacer";
@@ -18,6 +18,7 @@ import {
 import { useRef, useCallback } from "react";
 import { InstallmentDetails } from "./InstallmentDetails";
 import { InstallmentStateTag } from "./InstallmentStateTag";
+import { PressableWithFeedback } from "@/src/shared/view/components/PressableWithFeedback";
 
 type IconProps = {
   installment: Installment;
@@ -79,7 +80,7 @@ export const PaymentPlanTimelineItem = ({
 
   return (
     <>
-      <TouchableOpacity
+      <PressableWithFeedback
         style={styles.container}
         onPress={handlePresentModalPress}
       >
@@ -116,7 +117,7 @@ export const PaymentPlanTimelineItem = ({
             color="colors.neutral.medium"
           />
         </View>
-      </TouchableOpacity>
+      </PressableWithFeedback>
       <BottomSheetModal
         ref={bottomSheetModalRef}
         onDismiss={handleDismiss}

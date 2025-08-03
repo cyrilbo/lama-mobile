@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import { Payment } from "../../shared/domain/payment.types";
 import { Typography } from "@/src/shared/view/ui-kit/components/Typography/Typography";
 import { PaymentProgress } from "./PaymentProgress";
@@ -17,6 +17,7 @@ import {
   getNextInstallment,
 } from "../../shared/domain/payment.helpers";
 import { useLingui } from "@lingui/react/macro";
+import { PressableWithFeedback } from "@/src/shared/view/components/PressableWithFeedback";
 
 type Props = {
   payment: Payment;
@@ -33,7 +34,7 @@ export const PaymentListItem = memo(function PaymentListItem({
   const nextInstallment = getNextInstallment(payment);
 
   return (
-    <TouchableOpacity
+    <PressableWithFeedback
       style={styles.container}
       onPress={() => {
         router.navigate({
@@ -90,7 +91,7 @@ export const PaymentListItem = memo(function PaymentListItem({
           <NextInstallmentOverview installment={nextInstallment} />
         </>
       )}
-    </TouchableOpacity>
+    </PressableWithFeedback>
   );
 });
 
